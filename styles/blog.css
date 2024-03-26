@@ -1,0 +1,94 @@
+@media (max-width: 1000px) {
+    .leftmenu > section > a,
+    .leftmenu > section > ul > li > a {
+        font-size: 12px !important;
+    }
+}
+
+.leftmenu {
+    /*box-shadow: 5px 5px 10px rgba(48, 48, 48);*/
+    display: flex;
+    justify-content: left;
+    background: rgba(30, 30, 30, 0.801);
+    height: 100%;
+    color: black;
+    width: 15%;
+    position: fixed;
+    top: 0;
+
+    left: 0;
+    border-radius: 10px;
+}
+
+.leftmenu > section {
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.leftmenu > section > a {
+    display: flex;
+    justify-content: left;
+    background: transparent;
+    font-weight: normal;
+    margin-top: 5%;
+    text-decoration: none;
+    font-size: 16px;
+    padding-left: 10px;
+    color: white;
+    transition: font-size 0.1s ease-in-out, font-weight 0.1s ease-in-out,
+        background 0.2s ease-in-out;
+}
+
+.leftmenu > section > a:hover {
+    border-radius: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: rgb(52, 52, 52);
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.sub:hover {
+    font-size: 15px !important;
+}
+
+.sub {
+    font-size: 14px !important;
+    margin-left: 10px;
+    padding-left: 10px !important;
+}
+
+.articulo h3,
+.articulo h4 {
+    padding-top: 55px;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.articulo h4 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+p {
+    font-size: 15px;
+}
+
+.punto {
+    padding-top: 60px !important;
+}
+
+.articulo li > div {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+hr {
+    margin-top: 20px;
+    font-weight: bold;
+    width: 93%;
+    display: inline-block;
+}

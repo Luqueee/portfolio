@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Portfolio</title>
+        <link rel="stylesheet" href="./styles/styles.css" />
+        <link rel="stylesheet" href="./styles/forms.css" />
+        <link rel="stylesheet" href="./styles/footer.css" />
+        <meta name="description" content="A3" />
+        <!-- descripció -->
+        <meta name="author" content="Adria Cabrera Luque" />
+        <!-- autor de la pagina -->
+        <meta name="keywords" content="portfolio programacion" />
+
+        <script src="scripts/script.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <header id="inici">
+            <nav>
+                <div class="menu">
+                    <button>
+                        <a class="linksheader" href="#proyectos">Proyectos</a>
+                    </button>
+                    <button>
+                        <a class="linksheader" href="/sobre/about.html"
+                            >Sobre mi</a
+                        >
+                    </button>
+                    <button>
+                        <a class="linksheader" href="./blog.html">Blog</a>
+                    </button>
+                    <button>
+                        <a class="linksheader" href="/forms/contacto.html"
+                            >Contacto</a
+                        >
+                    </button>
+                    <button
+                        style="border: 2px solid white; border-radius: 99999">
+                        <a
+                            class="linksheader"
+                            href="/forms/login.html"
+                            style="padding: 5px"
+                            ><img src="/static/user.svg" alt="login"
+                        /></a>
+                    </button>
+                </div>
+            </nav>
+        </header>
+        <div class="encabezado">
+            <div class="titulo">
+                <p><b>Hola,</b></p>
+                <p>
+                    <b>Soy</b> <span class="green"><b>Adria</b></span>
+                    <span class="green"><b>Cabrera</b></span>
+                    <span class="green"><b>Luque</b></span>
+                </p>
+                <p>
+                    <b>estudiante</b> <b>de</b> <b>1r SMX</b
+                    ><span style="position: relative"
+                        ><span class="green greenpoint"><b>.</b></span></span
+                    >
+                </p>
+                <div class="links">
+                    <button class="button cv">
+                        Descargar CV <img src="static/download.svg" alt="" />
+                    </button>
+                    <a target="_blank" href="https://github.com/Luqueee"
+                        ><img
+                            src="https://skillicons.dev/icons?i=github&perline=10"
+                            alt=""
+                    /></a>
+                    <a
+                        target="_blank"
+                        href="https://discordapp.com/users/.adriaaaa"
+                        ><img
+                            src="https://skillicons.dev/icons?i=discord&perline=10"
+                            alt=""
+                    /></a>
+                    <a
+                        target="_blank"
+                        href="mailto:e.acabreral@ies-sabadell.cat"
+                        ><img
+                            src="https://skillicons.dev/icons?i=gmail&perline=10"
+                            alt=""
+                    /></a>
+                </div>
+            </div>
+
+            <div class="contenedor-imagen">
+                <img src="./static/pato.gif" alt="" />
+            </div>
+        </div>
+        <div class="seccion">
+            <div class="proyectos" id="proyectos">
+                <h2><span>🧑🏽‍💻 </span>Proyectos</h2>
+                <section class="proyectocontent">
+                    <div class="imgproyecto">
+                        <img src="./static/facturas.png" alt="" />
+                    </div>
+                    <div class="texto">
+                        <h3>
+                            <b>App</b> <b>de</b> <b>facturas</b> <b>con</b>
+                            <b>Tkinter</b>
+                        </h3>
+                        <div>
+                            <div class="lenguajes">
+                                <img
+                                    src="https://skillicons.dev/icons?i=py&perline=10"
+                                    alt="" />
+                            </div>
+                            <div class="github">
+                                <a
+                                    target="_blank"
+                                    href="https://github.com/Luqueee/Bill-App"
+                                    ><img
+                                        class="githubicon"
+                                        src="https://skillicons.dev/icons?i=github&perline=10"
+                                        alt=""
+                                /></a>
+                            </div>
+                        </div>
+                        <p>
+                            Una app de facturas hecha en Python que permite
+                            gestionar el inventario, crear clientes, generar
+                            presupuestos y calcularlos, ademas de que permite
+                            generar facturas professionales automatizadas con
+                            todos los datos del cliente.
+                        </p>
+                    </div>
+                </section>
+                <section class="proyectocontent">
+                    <div class="imgproyecto">
+                        <img src="./static/caprep.png" alt="" />
+                    </div>
+                    <div class="texto">
+                        <h3>
+                            <b>Reproductor</b> <b>de</b> <b>musica</b>
+                            <b>con</b>
+                            <b>REFLEX</b>
+                        </h3>
+                        <div>
+                            <div class="lenguajes">
+                                <img
+                                    src="https://skillicons.dev/icons?i=py&perline=10"
+                                    alt="" />
+                            </div>
+                            <div class="github">
+                                <a
+                                    target="_blank"
+                                    href="https://github.com/Luqueee/Reflex-Player"
+                                    ><img
+                                        class="githubicon"
+                                        src="https://skillicons.dev/icons?i=github&perline=10"
+                                        alt=""
+                                /></a>
+                            </div>
+                        </div>
+                        <p>
+                            Reproductor de musica hecho en Python que obtiene
+                            canciones de Youtube.
+                        </p>
+                    </div>
+                </section>
+                <section class="proyectocontent">
+                    <div class="imgproyecto">
+                        <img src="./static/pokemon.webp" alt="" />
+                    </div>
+                    <div class="texto">
+                        <h3><b>Pokemon</b> <b>downloader</b></h3>
+                        <div>
+                            <div class="lenguajes">
+                                <img
+                                    src="https://skillicons.dev/icons?i=py&perline=10"
+                                    alt="" />
+                            </div>
+                            <div class="github">
+                                <a
+                                    target="_blank"
+                                    href="https://github.com/Luqueee/Pokemon-Downloader"
+                                    ><img
+                                        class="githubicon"
+                                        src="https://skillicons.dev/icons?i=github&perline=10"
+                                        alt=""
+                                /></a>
+                            </div>
+                        </div>
+                        <p>
+                            Descarga automaticamente PNGs de todos los Pokemons
+                            que existen junto con sus stats.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="footer">
+            <footer>
+                <div class="links_footer">
+                    <h4>Hecho por Adrià Cabrera 1r SMX B</h4>
+                    <button class="cv_footer">
+                        Descargar CV <img src="/static/download.svg" alt="" />
+                    </button>
+                    <a target="_blank" href="https://github.com/Luqueee"
+                        ><img
+                            src="https://skillicons.dev/icons?i=github&perline=10"
+                            alt=""
+                    /></a>
+                    <a
+                        target="_blank"
+                        href="https://discordapp.com/users/.adriaaaa"
+                        ><img
+                            src="https://skillicons.dev/icons?i=discord&perline=10"
+                            alt=""
+                    /></a>
+                    <a
+                        target="_blank"
+                        href="mailto:e.acabreral@ies-sabadell.cat"
+                        ><img
+                            src="https://skillicons.dev/icons?i=gmail&perline=10"
+                            alt=""
+                    /></a>
+                </div>
+            </footer>
+        </div>
+
+        <script src="/scripts/script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Portfolio</title>
+        <link rel="stylesheet" href="/styles/styles.css" />
+        <link rel="stylesheet" href="/styles/forms.css" />
+        <link rel="stylesheet" href="/styles/footer.css" />
+        <meta name="description" content="A3" />
+        <!-- descripció -->
+        <meta name="author" content="Adria Cabrera Luque" />
+        <!-- autor de la pagina -->
+        <meta name="keywords" content="portfolio programacion" />
+
+        <script src="scripts/script.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <header id="inici">
+            <nav>
+                <div class="menu">
+                    <button>
+                        <a class="linksheader" href="/index.html">Inicio</a>
+                    </button>
+                    <button>
+                        <a class="linksheader" href="/sobre/about.html"
+                            >Sobre mi</a
+                        >
+                    </button>
+                    <button>
+                        <a class="linksheader" href="/blog.html">Blog</a>
+                    </button>
+                    <button>
+                        <a class="linksheader" href="./contacto.html"
+                            >Contacto</a
+                        >
+                    </button>
+                </div>
+            </nav>
+        </header>
+        <div class="encabezado">
+            <div class="contenedor-imagen">
+                <img src="./static/pato.gif" alt="" />
+            </div>
+        </div>
+        <div class="seccion" style="padding-bottom: 10%">
+            <div id="contact">
+                <section class="proyectocontent">
+                    <form
+                        action="http://virtual642.ies-sabadell.cat/html/portfolio_form/form.php"
+                        method="post"
+                        style="height: 100%">
+                        <h3><b>Iniciar Sesión</b></h3>
+
+                        <input
+                            type="text"
+                            name="Nombre"
+                            id="Nombre"
+                            placeholder="Nombre" />
+
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            placeholder="Contraseña" />
+
+                        <div class="buttons">
+                            <input type="submit" value="Enviar" />
+                            <input type="reset" value="Borrar" />
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+        <div class="footer">
+            <footer>
+                <div class="links_footer">
+                    <h4>Hecho por Adrià Cabrera 1r SMX B</h4>
+                    <button class="cv_footer">
+                        Descargar CV <img src="/static/download.svg" alt="" />
+                    </button>
+                    <a target="_blank" href="https://github.com/Luqueee"
+                        ><img
+                            src="https://skillicons.dev/icons?i=github&perline=10"
+                            alt=""
+                    /></a>
+                    <a
+                        target="_blank"
+                        href="https://discordapp.com/users/.adriaaaa"
+                        ><img
+                            src="https://skillicons.dev/icons?i=discord&perline=10"
+                            alt=""
+                    /></a>
+                    <a
+                        target="_blank"
+                        href="mailto:e.acabreral@ies-sabadell.cat"
+                        ><img
+                            src="https://skillicons.dev/icons?i=gmail&perline=10"
+                            alt=""
+                    /></a>
+                </div>
+            </footer>
+        </div>
+
+        <script src="/scripts/script.js"></script>
+    </body>
+</html>

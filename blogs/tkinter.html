@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tkinter</title>
+        <link rel="stylesheet" href="../styles/blog.css" />
+        <link rel="stylesheet" href="../styles/pages.css" />
+        <link rel="stylesheet" href="../styles/gist.css" />
+        <link rel="stylesheet" href="/styles/footer.css" />
+    </head>
+    <body>
+        <header id="inici">
+            <nav>
+                <div class="menu">
+                    <button>
+                        <a class="linksheader" href="/index.html">Inicio</a>
+                    </button>
+                    <button>
+                        <a class="linksheader" href="/sobre/about.html"
+                            >Sobre mi</a
+                        >
+                    </button>
+                    <button>
+                        <a class="linksheader" href="/blog.html">Blog</a>
+                    </button>
+                    <button>
+                        <a class="linksheader" href="/forms/contacto.html"
+                            >Contacto</a
+                        >
+                    </button>
+                </div>
+            </nav>
+        </header>
+        <div class="encabezado">
+            <div class="titulo">
+                <p><b>Como</b><b> crear</b></p>
+                <p>
+                    <span class="green"><b>APPs</b></span>
+                    <b>en</b>
+                    <b>Python</b>
+                    <span style="position: relative"
+                        ><span class="green greenpoint"><b>.</b></span></span
+                    >
+                </p>
+            </div>
+
+            <div class="contenedor-imagen">
+                <img width="383px" src="../static/luffy.gif" alt="" />
+            </div>
+        </div>
+
+        <div class="seccion">
+            <div class="articulo" id="proyectos">
+                <div>
+                    <h3>
+                        Cómo usar la librería Tkinter en Python para crear
+                        interfaces gráficas de usuario
+                    </h3>
+                    <p>
+                        Tkinter es una biblioteca estándar de Python que se
+                        utiliza para crear interfaces gráficas de usuario (GUI).
+                        Es fácil de aprender y usar, lo que la convierte en una
+                        opción popular para desarrolladores que desean crear
+                        aplicaciones con una interfaz de usuario intuitiva. En
+                        este artículo, exploraremos los conceptos básicos de
+                        Tkinter y proporcionaremos ejemplos prácticos junto con
+                        la integración de Prism para resaltar la sintaxis de
+                        código.
+                    </p>
+                    <h3 id="install">Instalación de Tkinter</h3>
+                    <p>
+                        Tkinter viene incluido con la instalación estándar de
+                        Python, por lo que no es necesario instalarlo por
+                        separado. Puedes comenzar a usar Tkinter de inmediato
+                        después de instalar Python en tu sistema.
+                    </p>
+                    <p class="codigo">pip -V</p>
+                    <p class="codigo">pip install tk</p>
+                    <h3 id="Crear_Ventana">
+                        Creación de una ventana básica con Tkinter
+                    </h3>
+                    <p>
+                        El primer paso para crear una aplicación Tkinter es
+                        crear una ventana. Aquí tienes un ejemplo básico de cómo
+                        hacerlo:
+                    </p>
+                    <script src="https://gist.github.com/Luqueee/f3601f58a0037a2b16426016187e669f.js"></script>
+                    <h3 id="label" style="padding-top: 50px">
+                        Lista de componentes basicos y su uso
+                    </h3>
+
+                    <h4 style="padding-top: 1px">Etiqueta Label</h4>
+                    <script src="https://gist.github.com/Luqueee/58acb8b787586c6e605ee5168e5d0749.js"></script>
+                    <p></p>
+
+                    <h4 id="button">Etiqueta Button</h4>
+                    <script src="https://gist.github.com/Luqueee/69dbfc2ce5ce4b15ef075a75811b30c2.js"></script>
+                    <p></p>
+
+                    <h4 id="entry">Etiqueta Entry</h4>
+                    <script src="https://gist.github.com/Luqueee/8fe617c935499eceb87ddef1a0e15921.js"></script>
+                    <p></p>
+
+                    <h4 id="text">Etiqueta Text</h4>
+                    <script src="https://gist.github.com/Luqueee/169a3dec0380ed2b45867c30bb9577ef.js"></script>
+                    <p></p>
+
+                    <h4 id="check">Etiquetas Check</h4>
+                    <script src="https://gist.github.com/Luqueee/e3694530bb3564eff0da77539e8c7bd0.js"></script>
+                    <p></p>
+
+                    <h4 id="option">Etiqueta Option</h4>
+                    <script src="https://gist.github.com/Luqueee/e3694530bb3564eff0da77539e8c7bd0.js"></script>
+                    <p></p>
+
+                    <h4 id="final">Codigo final</h4>
+                    <script src="https://gist.github.com/Luqueee/4f04aeaf32dfda1f27166d5d73e606a0.js"></script>
+                    <p style="padding-bottom: 100px">
+                        Este ejemplo utiliza una variedad de etiquetas y widgets
+                        de Tkinter, incluyendo etiquetas simples y con estilo,
+                        botones, cuadros de texto, cuadros de texto de varias
+                        líneas, cuadros de lista, casillas de verificación,
+                        botones de radio, menú desplegable, y una etiqueta para
+                        mostrar resultados. Cada etiqueta y widget se describe
+                        brevemente en los comentarios del código para ayudar a
+                        entender su función en la interfaz gráfica de usuario.
+                    </p>
+
+                    <script src="../scripts/script.js"></script>
+                </div>
+                <div class="leftmenu">
+                    <section>
+                        <a href="#install">Instalar tkinter</a>
+                        <a href="#Crear_Ventana">Crear ventana</a>
+
+                        <a href="#label">Lista de componentes</a>
+                        <a class="sub" href="#label">Label</a>
+                        <a class="sub" href="#button">Button</a>
+                        <a class="sub" href="#entry">Entry</a>
+                        <a class="sub" href="#text">Text</a>
+                        <a class="sub" href="#check">Check</a>
+                        <a class="sub" href="#option">Option</a>
+                        <a class="sub" href="#final">Final</a>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="footer2">
+            <footer>
+                <div class="links_footer">
+                    <h4>Hecho por Adrià Cabrera 1r SMX B</h4>
+                    <button class="cv_footer">
+                        Descargar CV <img src="/static/download.svg" alt="" />
+                    </button>
+                    <a target="_blank" href="https://github.com/Luqueee"
+                        ><img
+                            src="https://skillicons.dev/icons?i=github&perline=10"
+                            alt=""
+                    /></a>
+                    <a
+                        target="_blank"
+                        href="https://discordapp.com/users/.adriaaaa"
+                        ><img
+                            src="https://skillicons.dev/icons?i=discord&perline=10"
+                            alt=""
+                    /></a>
+                    <a
+                        target="_blank"
+                        href="mailto:e.acabreral@ies-sabadell.cat"
+                        ><img
+                            src="https://skillicons.dev/icons?i=gmail&perline=10"
+                            alt=""
+                    /></a>
+                </div>
+            </footer>
+        </div>
+        <script src="/scripts/script.js"></script>
+    </body>
+</html>

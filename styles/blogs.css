@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
+@import url('https://fonts.cdnfonts.com/css/recoleta');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap');
+
+body::-webkit-scrollbar {
+    width: 5px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(103, 103, 103); /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+}
+
+/* Ocultar imagen en dispositivos móviles con ancho menor o igual a 900px */
+@media (max-width: 1000px) {
+    .contenedor-imagen > img {
+        left: 75% !important;
+    }
+    .encabezado {
+        width: 90% !important;
+    }
+
+    .proyectos {
+        width: 90% !important;
+    }
+
+    .titulo > p > b,
+    .titulo > p > span {
+        font-size: 40px !important;
+    }
+
+    .menu > button > a {
+        font-size: 15px !important;
+    }
+
+    .texto > h3 > b {
+        font-size: 40px !important;
+    }
+
+    .texto > p {
+        font-size: 18px !important;
+    }
+
+    nav {
+        width: 100% !important;
+    }
+    .proyectocontent {
+        display: block !important;
+    }
+
+    .github > a > img {
+        height: 3vw !important;
+    }
+    .lenguajes > img {
+        height: 3vw !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    .github > a > img {
+        height: 3vw !important;
+    }
+    .lenguajes > img {
+        height: 3vw !important;
+    }
+}
+
+html {
+    -webkit-tap-highlight-color: transparent;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Exo 2', Onest Variable, system-ui, sans-serif;
+    font-weight: 500;
+    background: rgb(26, 26, 27);
+
+    margin: 0;
+    position: relative;
+}
+.seccion {
+    margin: auto;
+    display: flex;
+    width: 100%;
+
+    justify-content: center;
+}
+.proyectos {
+    width: 50%;
+    margin: auto;
+}
+
+.green {
+    color: rgb(94, 209, 125);
+}
+
+.greenpoint {
+    position: absolute;
+
+    bottom: -25%;
+
+    margin: auto;
+
+    font-size: 80px;
+}
+
+header {
+    padding-top: 3px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 6vh;
+}
+
+nav {
+    z-index: 99999;
+    width: 50%;
+    height: 6%;
+    border-radius: 10px;
+    position: fixed;
+    transition: background 0.1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    box-sizing: content-box;
+    background: rgb(0, 0, 0, 0);
+    display: flex;
+
+    justify-content: space-around;
+    width: 100%;
+}
+
+.menu > button {
+    font-family: Onest Variable, system-ui, sans-serif;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+
+    height: 30px;
+
+    background: none;
+    box-shadow: none;
+    transition: box-shadow 0.5s ease-out;
+    border: none;
+}
+
+.menu > button > a {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    user-select: none;
+    -webkit-user-drag: none;
+    text-decoration: none;
+}
+
+.menu > button:hover {
+    box-shadow: 0px 0px 3px 3px rgb(35, 34, 34);
+    background: rgb(35, 34, 34);
+    cursor: pointer;
+}
+
+.encabezado {
+    position: relative;
+    width: 50%;
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    padding: auto;
+    padding-bottom: 30px;
+    justify-content: center;
+}
+
+.titulo {
+    width: 100%;
+}
+
+.titulo > p {
+    user-select: none;
+    font-size: 60px;
+    margin: auto;
+    margin-top: 0.5%;
+    letter-spacing: 2px;
+}
+
+.titulo > p > b,
+.titulo > p > span,
+.titulo > p > span > b,
+.titulo > p > span > span > b {
+    font-family: 'Londrina Solid', sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    text-shadow: none;
+    transition: text-shadow 0.2s ease-in-out;
+}
+
+.titulo > p > b:hover {
+    text-shadow: 0px 0px 10px rgb(160, 160, 160);
+}
+.titulo > p > span > b:hover,
+.titulo > p > span > span > b:hover {
+    text-shadow: 0px 0px 10px rgb(155, 244, 185);
+}
+
+.contenedor-imagen > img {
+    z-index: -1;
+    filter: opacity(0.2);
+    user-select: none;
+    -webkit-user-drag: none;
+    box-sizing: border-box;
+    position: fixed;
+    left: 85%;
+    transform: translateX(-50%);
+    border-radius: 30px;
+
+    box-shadow: none;
+    transition: box-shadow 0.5s ease-in-out;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.button {
+    font-family: Onest Variable, system-ui, sans-serif;
+    font-weight: 900;
+    border-radius: 0px;
+
+    background: white;
+    border: none;
+    padding: 10px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.links {
+    display: flex;
+    position: absolute;
+}
+
+.button {
+    justify-content: left;
+    flex: 6;
+}
+
+.links > a {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.links > a > img {
+    user-select: none;
+    -webkit-user-drag: none;
+    margin-top: 10px;
+    scale: 1;
+    transition: scale 0.2s ease-in-out;
+}
+
+.links > a > img:hover {
+    scale: 1.1;
+}
+
+.proyectos > h2 {
+    font-size: 30px;
+    user-select: none;
+    display: flex;
+    align-items: center;
+}
+
+.proyectos > h2 > span {
+    font-size: 40px;
+}
