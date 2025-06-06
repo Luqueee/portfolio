@@ -1,17 +1,18 @@
 "use client";
 /* eslint-disable react/no-unknown-property */
-import React, { forwardRef, useMemo, useRef, useLayoutEffect } from "react";
-import { Canvas, useFrame, useThree, RootState } from "@react-three/fiber";
-import { Color, Mesh, ShaderMaterial } from "three";
-import { IUniform } from "three";
+import type React from "react";
+import { forwardRef, useMemo, useRef, useLayoutEffect } from "react";
+import { Canvas, useFrame, useThree, type RootState } from "@react-three/fiber";
+import { Color, type Mesh, type ShaderMaterial } from "three";
+import type { IUniform } from "three";
 
 type NormalizedRGB = [number, number, number];
 
 const hexToNormalizedRGB = (hex: string): NormalizedRGB => {
   const clean = hex.replace("#", "");
-  const r = parseInt(clean.slice(0, 2), 16) / 255;
-  const g = parseInt(clean.slice(2, 4), 16) / 255;
-  const b = parseInt(clean.slice(4, 6), 16) / 255;
+  const r = Number.parseInt(clean.slice(0, 2), 16) / 255;
+  const g = Number.parseInt(clean.slice(2, 4), 16) / 255;
+  const b = Number.parseInt(clean.slice(4, 6), 16) / 255;
   return [r, g, b];
 };
 

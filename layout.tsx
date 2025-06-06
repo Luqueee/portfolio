@@ -5,6 +5,7 @@ import { NavBar } from "@/components/NavBar";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Silk from "@/components/ui/Background";
+import { Analytics } from "@vercel/analytics/next";
 
 gsap.registerPlugin(useGSAP);
 const inter = Inter({
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} ${inter.variable} antialiased max-w-screen overflow-x-hidden grid grid-rows-[60px_1fr]`}
       >
+        <Analytics />
         <div className="h-screen w-screen opacity-10 fixed top-0 left-0 -z-50">
           <Silk
             speed={5}
