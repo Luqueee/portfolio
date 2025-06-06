@@ -17,7 +17,9 @@ export const TechStack = () => {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 * (idx * 0.5) }}
             key={lang.name}
-            className={`border  border-zinc-800 hover:bg-zinc-800 focus:bg-zinc-800 bg-transparent rounded-lg p-2 gap-2 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition-all duration-300`}
+            className={
+              "border  border-zinc-800 hover:bg-zinc-800 focus:bg-zinc-800 bg-transparent rounded-lg p-2 gap-2 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition-all duration-300"
+            }
           >
             <img
               src={lang.icon}

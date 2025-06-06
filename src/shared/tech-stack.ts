@@ -1,4 +1,4 @@
-import { Langs } from "@/types/languages";
+import type { Langs } from "@/types/languages";
 
 const url_icon = "https://skillicons.dev/icons?i=";
 

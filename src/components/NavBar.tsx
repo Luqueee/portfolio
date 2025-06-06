@@ -30,7 +30,7 @@ export const NavBar = () => {
           onMouseOver={() => gsap.to(".menu", { y: -3 })}
           onMouseLeave={() => gsap.to(".menu", { y: 0 })}
           className="menu w-6 h-6 bg-white rounded-full z-50"
-        ></Link>
+        />
         <div className=" rounded-full absolute left-0 right-0 top-0 bottom-0 flex items-center justify-center">
           {Links.map((link) => (
             <Link
@@ -43,7 +43,6 @@ export const NavBar = () => {
             </Link>
           ))}
         </div>
-        <div></div>
       </div>
     </header>
   );

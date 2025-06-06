@@ -1,10 +1,11 @@
 "use client";
 
-import { Project, projects } from "@/shared/projects";
+import { type Project, projects } from "@/shared/projects";
 import { IconCode, IconWorld } from "@tabler/icons-react";
 import { motion, useInView } from "motion/react";
 import Link from "next/link";
-import React, { useRef } from "react";
+import type React from "react";
+import { useRef } from "react";
 
 export const ProjectsCard = () => {
   return (

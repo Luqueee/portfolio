@@ -1,6 +1,6 @@
-import * as React from "react";
 import type { SVGProps } from "react";
 export const GitHub = (props: SVGProps<SVGSVGElement>) => (
+  // biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
   <svg
     width="1em"
     height="1em"
@@ -20,6 +20,7 @@ export const GitHub = (props: SVGProps<SVGSVGElement>) => (
 );
 
 export const Instagram = (props: SVGProps<SVGSVGElement>) => (
+  // biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
