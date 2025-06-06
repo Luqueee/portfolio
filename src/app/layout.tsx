@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/NavBar";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Silk from "@/components/ui/Background";
+import { Analytics } from "@vercel/analytics/next";
 
 gsap.registerPlugin(useGSAP);
 const inter = Inter({
@@ -38,6 +39,7 @@ export default function RootLayout({
         </div>
         <NavBar />
         <div>{children}</div>
+        <Analytics />
       </body>
     </html>
   );

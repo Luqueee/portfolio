@@ -30,7 +30,7 @@ export default function Home() {
 
         <Socials />
       </div>
-      <div className="mt-5"></div>
+      <div className="mt-5" />
       <div className="mt-20 max-w-[900px] w-full" id="tech-stack">
         <TechStack />
       </div>
