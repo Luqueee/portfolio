@@ -11,7 +11,7 @@ export const ProjectsCard = () => {
   return (
     <div>
       <h3 className="text-4xl font-[700]">Projects</h3>
-      <div className="grid md:lg:grid-cols-2 grid-cols-1 gap-4">
+      <div className="grid md:lg:grid-cols-2 grid-cols-1 mt-4 gap-4">
         {projects.map((project, index) => {
           return <ProjectCard project={project} key={index} index={index} />;
         })}
@@ -32,7 +32,7 @@ const ProjectCard: React.FC<{
       initial={{ opacity: 0, y: 20 }}
       animate={isInView && { opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="flex flex-col mt-10 gap-4 p-4 bg-[#1a1a1a49] backdrop-blur-sm rounded-lg aspect-[3/4]"
+      className="flex flex-col gap-4 p-4 bg-[#1a1a1a49] backdrop-blur-sm rounded-lg aspect-[3/4]"
       {...props}
     >
       <img

@@ -7,7 +7,7 @@ import { IconBriefcaseFilled, IconHomeFilled } from "@tabler/icons-react";
 
 const Links = [
   {
-    href: "/",
+    href: "/#top",
     label: "Home",
     icon: IconHomeFilled,
   },

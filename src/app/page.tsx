@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="max-w-[1920px] w-full pb-8 mx-auto px-4  flex flex-col items-center  ">
-      <div className=" mt-40 flex flex-col items-center gap-4">
+      <div id="top" className=" mt-40 flex flex-col items-center gap-4">
         <h2 className="text-xl font-[600] text-gray-200 ">
           Adrià Cabrera Luque.
         </h2>
