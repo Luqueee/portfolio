@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { NavBar } from "@/components/blocks/NavBar";
+import { NavBar } from "@/components/Navbar/NavBar";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Silk from "@/components/ui/Background";

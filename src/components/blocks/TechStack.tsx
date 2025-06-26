@@ -25,8 +25,9 @@ export const TechStack = () => {
           trigger: "#ref",
           once: true,
           start: "top 80%",
+          end: "bottom 100%",
           toggleActions: "play none none none",
-          markers: false,
+          markers: true,
         },
       }
     );

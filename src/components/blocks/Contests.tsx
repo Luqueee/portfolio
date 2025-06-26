@@ -4,17 +4,21 @@ const contests = [
     years: [2024, 2025],
     location: "Institut Sabadell",
     description: (
-      <span>
-        I have participated in several editions of Codejam, a programming
-        competition organized by my institute and hosted on a custom platform
-        called Jo-el. Although the competition is designed for teams of three at
-        the advanced level, I chose to take on the challenge solo in two
-        editions. <br />
-        Codejam brings together students from different institutes, including
-        those from Barcelona, fostering a dynamic and competitive environment.
-        It was a great opportunity to test my problem-solving skills and push my
-        limits in real-world programming challenges.
-      </span>
+      <>
+        <p>
+          I have participated in several editions of Codejam, a programming
+          competition organized by my institute and hosted on a custom platform
+          called Jo-el. Although the competition is designed for teams of three
+          at the advanced level, I chose to take on the challenge solo in two
+          editions.
+        </p>
+        <p>
+          Codejam brings together students from different institutes, including
+          those from Barcelona, fostering a dynamic and competitive environment.
+          It was a great opportunity to test my problem-solving skills and push
+          my limits in real-world programming challenges.
+        </p>
+      </>
     ),
   },
   {
@@ -23,17 +27,20 @@ const contests = [
     results: ["?", "14 / 130"],
     location: "HP Inc - Sant Cugat",
     description: (
-      <span>
-        I also took part in HP CodeWars, a national programming competition held
-        in Sant Cugat and organized by Hewlett-Packard (HP). The event brought
-        together over 130 teams from all over Spain, creating a highly
-        competitive and inspiring atmosphere.
-        <br />
-        Our team achieved an impressive 14th place, standing out among many
-        talented participants. The top prize was an invitation to compete
-        internationally at HP&#39;s headquarters in Houston, Texas, making the
-        experience even more exciting and motivating.
-      </span>
+      <>
+        <p>
+          I also took part in HP CodeWars, a national programming competition
+          held in Sant Cugat and organized by Hewlett-Packard (HP). The event
+          brought together over 130 teams from all over Spain, creating a highly
+          competitive and inspiring atmosphere.
+        </p>
+        <p>
+          Our team achieved an impressive 14th place, standing out among many
+          talented participants. The top prize was an invitation to compete
+          internationally at HP&#39;s headquarters in Houston, Texas, making the
+          experience even more exciting and motivating.
+        </p>
+      </>
     ),
   },
 ];
@@ -57,7 +64,9 @@ export function Contests() {
                 Results: {contest.results.join(" | ")}
               </p>
             )}
-            <p className="mt-2 text-zinc-300">{contest.description}</p>
+            <div className="mt-2 text-zinc-300 text-balance flex flex-col gap-2">
+              {contest.description}
+            </div>
           </div>
         ))}
       </div>

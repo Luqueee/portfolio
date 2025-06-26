@@ -21,7 +21,8 @@ export const projects: Project[] = [
             "Tauri",
             "Docker",
             "Pm2",
-            "Redis"
+            "Redis",
+            "Nest.js"
         ],
         code: "https://github.com/remotecord",
         demo: "https://remotecord.app"
