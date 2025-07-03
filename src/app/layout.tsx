@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
         className={`${inter.className} ${inter.variable} antialiased max-w-screen overflow-x-hidden pb-4 px-4`}
       >
