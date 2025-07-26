@@ -14,8 +14,58 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Luqueee",
-  description: "Luqueee's personal website and portfolio",
+  title: {
+    default: "Luqueee Portfolio",
+    template: "%s | Luqueee Portfolio",
+  },
+  description:
+    "Luqueee's personal website showcasing projects, skills, and contact information.",
+  metadataBase: new URL("https://luqueee.dev"),
+  keywords: [
+    "Luqueee",
+    "Portfolio",
+    "Web Developer",
+    "Frontend",
+    "React",
+    "TypeScript",
+    "Projects",
+    "Software Engineer",
+    "Personal Website",
+  ],
+  authors: [{ name: "Luqueee", url: "https://luqueee.dev" }],
+  openGraph: {
+    title: "Luqueee Portfolio",
+    description:
+      "Explore Luqueee's personal website, projects, and contact details.",
+    url: "https://luqueee.dev",
+    siteName: "Luqueee Portfolio",
+    images: [
+      {
+        url: "https://luqueee.dev/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Luqueee Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Luqueee Portfolio",
+    description: "Luqueee's personal website and portfolio.",
+    images: ["https://luqueee.dev/images/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -38,7 +88,9 @@ export default function RootLayout({
           />
         </div>
         <NavBar />
-        <div>{children}</div>
+        <div className="max-w-[1920px] w-full pb-8 mx-auto px-4 h-fit flex flex-col items-center ">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

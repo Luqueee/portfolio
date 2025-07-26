@@ -15,7 +15,7 @@ export function Hero() {
             animate={{ x: 0 }}
             transition={{
               delay: 0.2,
-              duration: 0.5,
+              duration: 0.8,
               ease: "easeInOut",
             }}
             style={{ display: "inline-block" }}
@@ -25,8 +25,8 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
-                delay: 0.2,
-                duration: 0.8,
+                delay: 0.4,
+                duration: 0.6,
               }}
             >
               FULLSTACK
@@ -38,7 +38,7 @@ export function Hero() {
             animate={{ x: 0 }}
             transition={{
               delay: 0.2,
-              duration: 0.5,
+              duration: 0.8,
               ease: "easeInOut",
             }}
             style={{ display: "inline-block" }}
@@ -47,8 +47,8 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
-                delay: 0.2,
-                duration: 0.8,
+                delay: 0.4,
+                duration: 0.6,
               }}
             >
               DEVELOPER

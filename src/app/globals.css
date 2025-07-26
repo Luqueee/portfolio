@@ -20,3 +20,7 @@ html {
 .max-w-default {
   @apply max-w-[900px];
 }
+
+.section {
+  @apply mt-20 max-w-[900px] w-full scroll-mt-32;
+}

@@ -20,12 +20,12 @@ const Links = [
     icon: IconHomeFilled,
   },
   {
-    href: "/#studies",
+    href: "/about/#studies",
     label: "Studies",
     icon: IconClipboardFilled,
   },
   {
-    href: "/#contests",
+    href: "/about/#contests",
     label: "Contests",
     icon: IconAwardFilled,
   },
