@@ -1,3 +1,4 @@
+import { ExperiencesCard } from "@/components/blocks/Experience";
 import { ProjectsCard } from "@/components/blocks/Projects";
 import { TechStack } from "@/components/blocks/TechStack";
 
@@ -17,6 +18,7 @@ export default function Home() {
             src={"/images/kenaLogo.png"}
             alt="kena logo"
             width={80}
+            draggable={false}
             height={80}
             className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out"
           />
@@ -25,6 +27,9 @@ export default function Home() {
 
       <div className="section" id="tech-stack">
         <TechStack />
+      </div>
+      <div className="section" id="experiences">
+        <ExperiencesCard />
       </div>
       <div className="section" id="projects">
         <ProjectsCard />

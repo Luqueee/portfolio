@@ -30,6 +30,11 @@ const Links = [
     icon: IconAwardFilled,
   },
   {
+    href: "/#experiences",
+    label: "Experience",
+    icon: IconBriefcaseFilled,
+  },
+  {
     href: "/#projects",
     label: "Projects",
     icon: IconBriefcaseFilled,
