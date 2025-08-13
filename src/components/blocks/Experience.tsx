@@ -1,7 +1,7 @@
 "use client";
 
 import { Experience, experiences } from "@/shared/experience";
-import { IconCode, IconWorld } from "@tabler/icons-react";
+import { IconWorld } from "@tabler/icons-react";
 import { motion, useInView } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
