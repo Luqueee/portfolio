@@ -45,7 +45,8 @@ const ProjectCard: React.FC<{
         className="w-full h-fit rounded-lg"
       />
 
-      <h4 className="text-xl font-[600]">{project.name}</h4>
+      <h4 className="text-xl font-[700]">{project.name}</h4>
+      <p>{project.description}</p>
       <div className="flex flex-wrap">
         {project.tech_stack.map((tech, index) => (
           <span
@@ -64,7 +65,7 @@ const ProjectCard: React.FC<{
             className="inline-flex items-center gap-2 justify-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-zinc-800 h-10 px-4 py-2 relative group overflow-hidden text-gray-50 rounded-lg hover:bg-zinc-700 hover:text-gray-50 transition-all duration-500 "
           >
             <IconCode />
-            <span> Source Code</span>
+            <span>Source Code</span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 transform -translate-x-full group-hover:translate-x-full transition duration-700" />
           </Link>
         )}
@@ -75,7 +76,7 @@ const ProjectCard: React.FC<{
             className="inline-flex items-center gap-2 justify-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-zinc-800 h-10 px-4 py-2 relative group overflow-hidden text-gray-50 rounded-lg hover:bg-zinc-700 hover:text-gray-50 transition-all duration-500 "
           >
             <IconWorld />
-            <span> Demo</span>
+            <span>Website</span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 transform -translate-x-full group-hover:translate-x-full transition duration-700" />
           </Link>
         )}
