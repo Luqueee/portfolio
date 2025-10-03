@@ -6,6 +6,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Silk from "@/components/ui/Background";
 import { Footer } from "@/components/blocks/Footer";
+import { CanvasScene } from "@/components/Canvas/Canvas";
+import { Scene } from "@/components/Canvas/Scene";
 
 gsap.registerPlugin(useGSAP);
 const inter = Inter({
@@ -78,6 +80,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} ${inter.variable} antialiased max-w-screen overflow-x-hidden pb-4 px-4`}
       >
+        {/* <Scene /> */}
         <div className="h-screen w-screen opacity-10 fixed top-0 left-0 -z-50">
           <Silk
             speed={5}
