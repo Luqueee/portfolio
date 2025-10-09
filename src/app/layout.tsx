@@ -6,8 +6,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Silk from "@/components/ui/Background";
 import { Footer } from "@/components/blocks/Footer";
-import { CanvasScene } from "@/components/Canvas/Canvas";
-import { Scene } from "@/components/Canvas/Scene";
+import { Analytics } from "@vercel/analytics/next";
 
 gsap.registerPlugin(useGSAP);
 const inter = Inter({
@@ -23,17 +22,6 @@ export const metadata: Metadata = {
   description:
     "Luqueee's personal website showcasing projects, skills, and contact information.",
   metadataBase: new URL("https://luqueee.dev"),
-  keywords: [
-    "Luqueee",
-    "Portfolio",
-    "Web Developer",
-    "Frontend",
-    "React",
-    "TypeScript",
-    "Projects",
-    "Software Engineer",
-    "Personal Website",
-  ],
   authors: [{ name: "Luqueee", url: "https://luqueee.dev" }],
   openGraph: {
     title: "Luqueee Portfolio",
@@ -95,6 +83,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
+        <Analytics mode="production" />;
       </body>
     </html>
   );
