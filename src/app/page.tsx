@@ -12,15 +12,32 @@ export default function Home() {
       <Hero />
 
       <div className="section flex justify-center items-center flex-col gap-8">
-        <h3 className="text-3xl font-[700]">Currently working on</h3>
-        <Link href={"https://kenabot.xyz"} target="_blank">
+        <h3 className="text-3xl font-[700] relative">
+          <span>Currently working on</span>
+          <span className="absolute left-0 top-0 scale-101 -z-10 text-slate-200 blur-xs animate-pulse">
+            Currently working on
+          </span>
+        </h3>
+        <Link
+          href={"https://kenabot.xyz"}
+          target="_blank"
+          className="relative hover:scale-105 transition-transform duration-300 ease-in-out"
+        >
           <Image
             src={"/images/kenaLogo.png"}
             alt="kena logo"
             width={80}
             draggable={false}
             height={80}
-            className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out"
+            className="rounded-lg shadow-lg "
+          />
+          <Image
+            src={"/images/kenaLogo.png"}
+            alt="kena logo"
+            width={80}
+            draggable={false}
+            height={80}
+            className="rounded-lg shadow-lg absolute top-0 scale-110 -z-10 bg-amber-200 blur-sm animate-pulse"
           />
         </Link>
       </div>

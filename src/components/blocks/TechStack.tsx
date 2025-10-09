@@ -41,16 +41,28 @@ export const TechStack = () => {
             key={lang.name}
             className={`lang border border-zinc-800 hover:bg-zinc-800/30 bg-zinc-900/10 backdrop-blur-md focus:bg-zinc-800 rounded-lg p-2 gap-2 flex flex-col items-center justify-center shadow-md hover:shadow-lg transition-all duration-300`}
           >
-            <Image
-              src={lang.icon}
-              alt={lang.name}
-              draggable={false}
-              loading="lazy"
-              width={40}
-              height={40}
-              className="w-10 h-10 object-contain"
-              unoptimized
-            />
+            <div className="relative">
+              <Image
+                src={lang.icon}
+                alt={lang.name}
+                draggable={false}
+                loading="lazy"
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain"
+                unoptimized
+              />
+              <Image
+                src={lang.icon}
+                alt={lang.name}
+                draggable={false}
+                loading="lazy"
+                width={40}
+                height={40}
+                className="w-10 h-10 absolute top-0 scale-105 -z-10 blur-xs animate-pulse object-contain"
+                unoptimized
+              />
+            </div>
             <p className="text-sm text-zinc-400 select-none">{lang.name}</p>
           </div>
         ))}
