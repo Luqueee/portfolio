@@ -15,7 +15,7 @@ const socials = [
 
 export const Socials = () => {
   return (
-    <>
+    <div className="flex gap-4 items-center">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -30,7 +30,7 @@ export const Socials = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 transform -translate-x-full group-hover:translate-x-full transition duration-700" />
         </Link>
       </motion.div>
-      <div className="flex gap-4 ">
+      <div className="flex gap-2 items-center">
         {socials.map((social, index) => {
           return (
             <motion.div
@@ -38,6 +38,7 @@ export const Socials = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.5, duration: 0.5 }}
               key={index}
+              className="h-fit flex items-center"
             >
               <Link
                 href={social.href}
@@ -52,6 +53,6 @@ export const Socials = () => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };

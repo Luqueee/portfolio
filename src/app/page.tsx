@@ -37,7 +37,7 @@ export default function Home() {
             width={80}
             draggable={false}
             height={80}
-            className="rounded-lg shadow-lg absolute top-0 scale-110 -z-10 bg-amber-200 blur-sm animate-pulse"
+            className="rounded-lg shadow-lg absolute top-0 scale-110 -z-10 blur-sm animate-pulse"
           />
         </Link>
       </div>

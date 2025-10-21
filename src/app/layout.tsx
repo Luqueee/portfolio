@@ -7,7 +7,9 @@ import gsap from "gsap";
 import Silk from "@/components/ui/Background";
 import { Footer } from "@/components/blocks/Footer";
 import { Analytics } from "@vercel/analytics/next";
-
+import { getRedisClient } from "../redis";
+import { SpotifyCard } from "@/components/spotify/SpotifyCard";
+import { AnimatePresence } from "motion/react";
 gsap.registerPlugin(useGSAP);
 const inter = Inter({
   variable: "--font-inter",
@@ -78,12 +80,17 @@ export default function RootLayout({
             rotation={0}
           />
         </div>
+        <div className="fixed right-4 bottom-4 z-[99999]">
+          <AnimatePresence mode="wait">
+            <SpotifyCard />
+          </AnimatePresence>
+        </div>
         <NavBar />
         <div className="max-w-[1920px] w-full pb-8 mx-auto px-4 h-fit flex flex-col items-center ">
           {children}
         </div>
         <Footer />
-        <Analytics mode="production" />;
+        <Analytics mode="production" />
       </body>
     </html>
   );
