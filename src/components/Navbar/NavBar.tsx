@@ -15,8 +15,11 @@ export const NavBar = () => {
           href={"/"}
           onMouseOver={() => gsap.to(".menu", { y: -3 })}
           onMouseLeave={() => gsap.to(".menu", { y: 0 })}
-          className="menu w-6 h-6 bg-white rounded-full z-50"
-        ></Link>
+          className="menu relative z-50"
+        >
+          <div className="w-6 h-6 bg-white rounded-full" />
+          <div className="absolute inset-0 m-auto scale-105 z-40 blur-xs animate-pulse w-6 h-6 bg-white rounded-full" />
+        </Link>
         <motion.div
           initial={{
             opacity: 0,

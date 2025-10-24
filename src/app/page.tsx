@@ -14,7 +14,7 @@ export default function Home() {
       <div className="section flex justify-center items-center flex-col gap-8">
         <h3 className="text-3xl font-[700] relative">
           <span>Currently working on</span>
-          <span className="absolute left-0 top-0 scale-101 -z-10 text-slate-200 blur-xs animate-pulse">
+          <span className="absolute left-0 top-0 scale-101 opacity-80 -z-10 text-slate-200 blur-xs animate-pulse">
             Currently working on
           </span>
         </h3>

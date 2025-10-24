@@ -68,7 +68,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body
-        className={`${inter.className} ${inter.variable} antialiased max-w-screen overflow-x-hidden pb-4 px-4`}
+        className={`${inter.className} ${inter.variable} antialiased max-w-screen overflow-x-hidden pb-25 px-4`}
       >
         {/* <Scene /> */}
         <div className="h-screen w-screen opacity-10 fixed top-0 left-0 -z-50">
