@@ -20,9 +20,9 @@ export async function GET(req: Request) {
   const bg = mode === "light" ? "#ffffff" : "#0B0B0B";
   const fg = mode === "light" ? "#0B0B0B" : "#ffffff";
 
-  const fontData = await fetch(
-    "https://preview.luqueee.dev/inter-bold.ttf"
-  ).then((r) => r.arrayBuffer());
+  const fontData = await fetch(`${process.env.SITE_URL}/inter-bold.ttf`).then(
+    (r) => r.arrayBuffer()
+  );
 
   return new ImageResponse(
     (
