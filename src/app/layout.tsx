@@ -10,61 +10,105 @@ import { Analytics } from "@vercel/analytics/next";
 import { getRedisClient } from "../redis";
 import { SpotifyCard } from "@/components/spotify/SpotifyCard";
 import { AnimatePresence } from "motion/react";
+import { ogUrl } from "@/lib/og";
+import Script from "next/script";
+
 gsap.registerPlugin(useGSAP);
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "Luqueee Portfolio",
-    template: "%s | Luqueee Portfolio",
-  },
-  description:
-    "Luqueee's personal website showcasing projects, skills, and contact information.",
-  metadataBase: new URL("https://luqueee.dev"),
-  authors: [{ name: "Luqueee", url: "https://luqueee.dev" }],
-  openGraph: {
-    title: "Luqueee Portfolio",
+export async function generateMetadata(): Promise<Metadata> {
+  const title = "Luqueee Portfolio";
+  const subtitle = "Fullstack Developer";
+  const site = "luqueee.dev";
+  const description =
+    "Luqueee's personal website showcasing projects, skills, and contact information.";
+  const image = ogUrl(process.env.SITE_URL!, {
+    title,
+    subtitle,
+    site,
+  });
+
+  console.log("Generated OG image URL:", image);
+
+  const metadata: Metadata = {
+    title: {
+      default: "Luqueee Portfolio",
+      template: "%s | Luqueee Portfolio",
+    },
     description:
-      "Explore Luqueee's personal website, projects, and contact details.",
-    url: "https://luqueee.dev",
-    siteName: "Luqueee Portfolio",
-    images: [
-      {
-        url: "https://luqueee.dev/images/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Luqueee Portfolio",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Luqueee Portfolio",
-    description: "Luqueee's personal website and portfolio.",
-    images: ["https://luqueee.dev/images/og-image.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
+      "Luqueee's personal website showcasing projects, skills, and contact information.",
+    metadataBase: new URL("https://luqueee.dev"),
+    authors: [{ name: "Luqueee", url: "https://luqueee.dev" }],
+    openGraph: {
+      title,
+      description,
+      url: image,
+      siteName: title,
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
+    robots: {
       index: true,
       follow: true,
-      noimageindex: false,
+      nocache: false,
+      googleBot: {
+        index: true,
+        follow: true,
+        noimageindex: false,
+      },
     },
-  },
-};
+  };
+
+  return metadata;
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const org = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Luqueee",
+    url: "https://luqueee.dev",
+    sameAs: [
+      "https://github.com/luqueee",
+      "https://www.linkedin.com/in/luqueee",
+      // add more
+    ],
+    jobTitle: "Front-End Developer",
+  };
+
+  const site = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Luqueee Portfolio",
+    url: "https://luqueee.dev",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://luqueee.dev/search?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body
@@ -91,6 +135,16 @@ export default function RootLayout({
         </div>
         <Footer />
         <Analytics mode="production" />
+        <Script
+          id="ld-person"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }}
+        />
+        <Script
+          id="ld-website"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(site) }}
+        />
       </body>
     </html>
   );
