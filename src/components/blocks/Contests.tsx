@@ -48,7 +48,7 @@ const contests = [
 export function Contests() {
   return (
     <div className="w-full">
-      <h3 className="text-4xl font-[700]">Contests</h3>
+      <h3 className="text-4xl font-[700]">Competitions</h3>
       <div className="w-full flex flex-col gap-4 mt-4">
         {contests.map((contest, idx) => (
           <div

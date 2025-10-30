@@ -13,7 +13,7 @@ export default function AboutPage() {
       <div className="section" id="studies">
         <Studies />
       </div>
-      <div className="section" id="contests">
+      <div className="section" id="competitions">
         <Contests />
       </div>
     </>

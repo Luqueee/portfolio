@@ -25,8 +25,8 @@ const Links = [
     icon: IconClipboardFilled,
   },
   {
-    href: "/about/#contests",
-    label: "Contests",
+    href: "/about/#competitions",
+    label: "Competitions",
     icon: IconAwardFilled,
   },
   {
