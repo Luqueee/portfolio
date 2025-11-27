@@ -13,13 +13,16 @@ export const SpotifyCard: React.FC = () => {
       setSong(fetchedSong);
     };
     fetchSong();
-    setInterval(fetchSong, 5000); // Refresh every 60 seconds
+    setInterval(fetchSong, 10000); // Refresh every 60 seconds
   }, []);
 
   if (!song) {
     return (
-      <div>
-        <h2>Loading...</h2>
+      <div className="grid relative min-h-15 min-w-15 items-center gap-4 transition-all duration-300 group animate-opacityPulse ">
+        <div className="absolute z-[999999] left-2 rounded-full w-12 h-auto aspect-square bg-zinc-600 spotify-image " />
+        <div className="relative w-40 overflow-hidden h-full group-hover:bg-zinc-800/90 md:lg:flex hidden items-center bg-zinc-800/80 backdrop-blur-md  rounded-full">
+          <div className=" w-full h-full bg-zinc-500 object-center blur-[2px] object-cover absolute right-0 top-0 -z-10 opacity-20" />
+        </div>
       </div>
     );
   }

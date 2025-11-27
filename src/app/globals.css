@@ -29,11 +29,25 @@ html {
   animation: rotate 20s linear infinite;
 }
 
+.animate-opacityPulse {
+  animation: opacityPulse 2s infinite;
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes opacityPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
   }
 }

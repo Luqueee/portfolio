@@ -40,13 +40,7 @@ export async function refreshAccessToken() {
 
 export async function getRedisClient() {
   if (!redisClient) {
-    const redisUrl =
-      "redis://default:" +
-      "Adria2007!" +
-      "@" +
-      "207.180.214.117" +
-      ":" +
-      "6999";
+    const redisUrl = process.env.REDIS_URL;
 
     redisClient = createClient({
       url: redisUrl,

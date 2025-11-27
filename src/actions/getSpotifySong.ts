@@ -1,5 +1,6 @@
 "use server";
 import { getRedisClient, refreshAccessToken } from "@/redis";
+import { RedirectStatusCode } from "next/dist/client/components/redirect-status-code";
 const SPOTIFY_API_URL =
   "https://api.spotify.com/v1/me/player/currently-playing";
 
@@ -15,6 +16,13 @@ export interface SpotifySong {
 export const getSpotifySong = async (): Promise<SpotifySong> => {
   const client = await getRedisClient();
 
+  const raw_cache_song = await client.get("spotify_current_song");
+
+  if (raw_cache_song) {
+    console.log("✅ Returning cached currently playing song from Redis");
+    return JSON.parse(raw_cache_song) as SpotifySong;
+  }
+
   let ACCESS_TOKEN = await client.get("spotify_access_token");
   // console.log("Current Spotify access token:", ACCESS_TOKEN);
   if (!ACCESS_TOKEN) {
@@ -26,6 +34,8 @@ export const getSpotifySong = async (): Promise<SpotifySong> => {
       Authorization: `Bearer ${ACCESS_TOKEN}`,
     },
   });
+
+  console.log("Fetching currently playing song from Spotify API");
 
   // console.log(
   //   "Spotify currently playing response status:",
@@ -78,5 +88,10 @@ export const getSpotifySong = async (): Promise<SpotifySong> => {
     albumImageUrl: data.item?.album?.images[0]?.url,
     songUrl: data.item?.external_urls?.spotify,
   };
+
+  await client.set("spotify_current_song", JSON.stringify(currentlyPlaying), {
+    EX: 30, // Cache for 30 seconds
+  });
+
   return currentlyPlaying;
 };

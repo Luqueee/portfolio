@@ -45,16 +45,12 @@ export async function GET(request: Request) {
     refresh_token: string;
     scope: string;
   };
-  console.log("Spotify token response:", data);
+  // console.log("Spotify token response:", data);
 
   const client = await getRedisClient();
 
-  await client.set("spotify_access_token", data.access_token, {
-    EX: data.expires_in,
-  });
-  await client.set("spotify_refresh_token", data.refresh_token, {
-    EX: 60 * 60 * 24 * 30, // 30 days
-  });
+  await client.set("spotify_access_token", data.access_token);
+  await client.set("spotify_refresh_token", data.refresh_token);
 
   return NextResponse.json({ message: "Spotify callback received" });
 }
