@@ -1,6 +1,6 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import { NavBar } from "@/components/Navbar/NavBar";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -31,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
     site,
   });
 
-  console.log("Generated OG image URL:", image);
+  // console.log("Generated OG image URL:", image);
 
   const metadata: Metadata = {
     title: {
@@ -110,16 +110,16 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body
         className={`${inter.className} ${inter.variable} antialiased max-w-screen overflow-x-hidden pb-25 px-4`}
       >
         {/* <Scene /> */}
-        <div className="h-screen w-screen opacity-10 fixed top-0 left-0 -z-50">
+        <div className="h-screen w-screen opacity-10 fixed top-0 left-0 -z-0">
           <Silk
-            speed={5}
-            scale={1}
-            color="#7B7481"
+            speed={8}
+            scale={1.2}
+            color="#ffffff"
             noiseIntensity={3}
             rotation={0}
           />

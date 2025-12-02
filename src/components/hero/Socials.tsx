@@ -44,7 +44,7 @@ export const Socials = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-fit items-center gap-2 justify-center whitespace-nowrap text-sm font-medium  ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  h-fit relative group  text-gray-50 rounded-full hover:bg-transparent hover:text-gray-50 transition-transform duration-500 hover:scale-105"
+                className="inline-flex w-fit items-center gap-2 justify-center whitespace-nowrap text-sm font-medium  ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  h-fit relative group  text-gray-50 rounded-full hover:bg-transparent hover:text-gray-50 transition-all duration-500 hover:scale-105"
               >
                 <social.icon className="w-8 h-8" />
                 <social.icon className="w-8 h-8 absolute top-0 -z-10 scale-105 blur-xs animate-pulse" />

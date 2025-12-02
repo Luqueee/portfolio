@@ -24,10 +24,10 @@ export const TechStack = () => {
         scrollTrigger: {
           trigger: "#ref",
           once: true,
-          start: "top 80%",
+          start: "top 85%",
           end: "bottom 100%",
           toggleActions: "play none none none",
-          markers: false,
+          markers: true,
         },
       }
     );

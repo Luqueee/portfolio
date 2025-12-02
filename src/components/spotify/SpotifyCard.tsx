@@ -41,13 +41,13 @@ export const SpotifyCard: React.FC = () => {
         key={song.title}
         className="grid relative min-h-15 min-w-15 items-center gap-4 transition-all duration-300 group "
       >
-        <div className="absolute z-[999999] spotify-image">
+        <div className="absolute z-[999999] spotify-image group-hover:-translate-y-2 group-hover:-translate-x-4 transition-all duration-300 group-hover:scale-125">
           <Image
             src={song.albumImageUrl}
             alt={song.album}
             width={100}
             height={100}
-            className="rounded-full w-16 h-auto "
+            className="rounded-full w-16 h-auto  "
           />
           <Image
             src={song.albumImageUrl}
@@ -57,16 +57,16 @@ export const SpotifyCard: React.FC = () => {
             className="absolute scale-105 inset-0 m-auto -z-[99] blur-xs rounded-full w-16 h-auto animate-pulse"
           />
         </div>
-        <div className="relative overflow-hidden h-full group-hover:bg-zinc-800/90 md:lg:flex hidden items-center bg-zinc-800/80 backdrop-blur-md  rounded-full">
+        <div className="relative overflow-hidden h-full md:lg:flex hidden items-center  backdrop-blur-md  rounded-full">
           <div className="px-3 py-2 pl-18 flex items-center">
-            <p className="font-bold z-[99999]">{song.title}</p>
+            <p className="font-bold z-[99999] ">{song.title}</p>
           </div>
           <Image
             src={song.albumImageUrl}
             alt={song.album}
             width={400}
             height={400}
-            className=" w-full h-full object-center blur-[2px] object-cover absolute right-0 top-0 -z-10 opacity-20"
+            className=" w-full h-full object-center blur-[2px] object-cover absolute right-0 top-0 -z-10 opacity-20 group-hover:scale-125 transition-all duration-300"
           />
         </div>
       </motion.div>

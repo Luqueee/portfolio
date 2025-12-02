@@ -3,11 +3,14 @@
 import Link from "next/link";
 import { useRef } from "react";
 import gsap from "gsap";
-import { NavButtons } from "./NavButtons";
+import { NavButtons, NavButtonsMobile } from "./NavButtons";
 import { motion } from "motion/react";
+import useWindow from "@/hooks/useWindow";
 
 export const NavBar = () => {
   const container = useRef<HTMLHeadingElement>(null);
+  const { isDesktop, loading } = useWindow();
+
   return (
     <header ref={container} className="fixed top-0 left-0 w-screen z-50">
       <div className=" flex justify-between relative bg-zinc-900/50 backdrop-blur-sm mt-4 items-center md:lg:max-w-[1000px] max-w-[95vw] h-15 rounded-full px-4  mx-auto w-full">
@@ -27,9 +30,9 @@ export const NavBar = () => {
           animate={{
             opacity: 1,
           }}
-          className=" rounded-full absolute left-0 right-0 top-0 bottom-0 flex items-center justify-center"
+          className=" rounded-full absolute left-0 right-0 top-0 bottom-0 flex items-center justify-center gap-1"
         >
-          <NavButtons />
+          {loading ? null : isDesktop ? <NavButtons /> : <NavButtonsMobile />}
         </motion.div>
       </div>
     </header>

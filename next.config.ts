@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  allowedDevOrigins: ["preview.luqueee.dev"],
 };
 
 export default nextConfig;
