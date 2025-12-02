@@ -7,7 +7,7 @@ import gsap from "gsap";
 import Silk from "@/components/ui/Background";
 import { Footer } from "@/components/blocks/Footer";
 import { Analytics } from "@vercel/analytics/next";
-import { getRedisClient } from "../redis";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SpotifyCard } from "@/components/spotify/SpotifyCard";
 import { AnimatePresence } from "motion/react";
 import { ogUrl } from "@/lib/og";
@@ -134,7 +134,6 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
-        <Analytics mode="production" />
         <Script
           id="ld-person"
           type="application/ld+json"
@@ -145,6 +144,8 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(site) }}
         />
+        <Analytics mode="production" />
+        <SpeedInsights />
       </body>
     </html>
   );
