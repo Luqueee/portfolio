@@ -27,7 +27,7 @@ export const TechStack = () => {
           start: "top 85%",
           end: "bottom 100%",
           toggleActions: "play none none none",
-          markers: true,
+          markers: false,
         },
       }
     );
