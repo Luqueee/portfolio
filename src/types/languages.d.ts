@@ -1,6 +1,25 @@
-type Language = "Postgres" | "MongoDB" | "TypeScript" | "Python" | "Golang" | "Html5" | "CSS" | "MongoDB" | "Next.js" | "React" | "Node.js" | "Express.js" | "Nest.js" | "Tauri" | "Docker" | "Pm2" | "Redis";
+type Languages =
+  | "Postgres"
+  | "MongoDB"
+  | "TypeScript"
+  | "Python"
+  | "Golang"
+  | "Html5"
+  | "CSS"
+  | "MongoDB"
+  | "Next.js"
+  | "React"
+  | "Node.js"
+  | "Express.js"
+  | "Nest.js"
+  | "Tauri"
+  | "Docker"
+  | "Pm2"
+  | "Redis";
 
-export type Langs = {
-    name: Language;
-    icon: string;
-}[];
+export interface Language {
+  name: Languages;
+  icon: string;
+}
+
+export type Langs = Language[];
