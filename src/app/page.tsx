@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      {/* <CurrentlyWorking /> */}
+      <CurrentlyWorking />
       <div className="section" id="tech-stack">
         <TechStackBlock />
       </div>
