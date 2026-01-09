@@ -3,6 +3,7 @@ import { ProjectsCard } from "@/components/blocks/Projects";
 import { TechStackBlock } from "@/components/techstack/TechStackBlock";
 
 import { Hero } from "@/components/hero/Hero";
+import { CurrentlyWorking } from "@/components/blocks/CurrentlyWorking";
 
 export default function Home() {
   return (
