@@ -12,7 +12,7 @@ export const CurrentlyWorking: React.FC = () => {
       <Link
         href={"https://kenabot.xyz"}
         target="_blank"
-        className="relative hover:scale-105 transition-transform duration-300 ease-in-out"
+        className="relative "
       >
         <Image
           src={"/images/kenaLogo.png"}
@@ -20,7 +20,7 @@ export const CurrentlyWorking: React.FC = () => {
           width={80}
           draggable={false}
           height={80}
-          className="rounded-lg shadow-lg "
+          className="w-30 h-30 rounded-lg hover:scale-110  object-contain hover:-translate-y-3 transition-all duration-300"
         />
         <Image
           src={"/images/kenaLogo.png"}
@@ -28,9 +28,11 @@ export const CurrentlyWorking: React.FC = () => {
           width={80}
           draggable={false}
           height={80}
-          className="rounded-lg shadow-lg absolute top-0 scale-110 -z-10 blur-sm animate-pulse"
+          className="w-30 h-30 rounded-lg absolute top-0 scale-105 -z-10 blur-xs animate-pulse object-contain"
         />
       </Link>
+
+        
     </div>
   );
 };

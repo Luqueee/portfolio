@@ -1,16 +1,18 @@
 "use client";
-import { getSpotifySong, SpotifySong } from "@/actions/getSpotifySong";
+import { getSpotifySong } from "@/actions/getSpotifySong";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
+import { SpotifyCurrentSong } from "@/types/spotify";
 export const SpotifyCard: React.FC = () => {
-  const [song, setSong] = useState<SpotifySong | null>(null);
+  const [song, setSong] = useState<SpotifyCurrentSong>();
 
   useEffect(() => {
     const fetchSong = async () => {
       const fetchedSong = await getSpotifySong();
-      setSong(fetchedSong);
+      // console.log("fetchedSong", fetchedSong);
+      if (fetchedSong) setSong(fetchedSong);
     };
     fetchSong();
     setInterval(fetchSong, 10000); // Refresh every 60 seconds
@@ -27,31 +29,31 @@ export const SpotifyCard: React.FC = () => {
     );
   }
 
-  if (!song.isPlaying) {
+  if (!song.is_playing || !song.item) {
     return <></>;
   }
 
   return (
-    <Link href={song.songUrl} target="_blank" className="">
+    <Link href={song.item.external_urls.spotify} target="_blank" className="">
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
-        key={song.title}
+        key={song.item.name}
         className="grid relative min-h-15 min-w-15 items-center gap-4 transition-all duration-300 group "
       >
         <div className="absolute z-[999999] spotify-image group-hover:-translate-y-2 group-hover:-translate-x-4 transition-all duration-300 group-hover:scale-125">
           <Image
-            src={song.albumImageUrl}
-            alt={song.album}
+            src={song.item.album.images[0].url}
+            alt={song.item.album.name}
             width={100}
             height={100}
             className="rounded-full w-16 h-auto  "
           />
           <Image
-            src={song.albumImageUrl}
-            alt={song.album}
+            src={song.item.album.images[0].url}
+            alt={song.item.album.name}
             width={100}
             height={100}
             className="absolute scale-105 inset-0 m-auto -z-[99] blur-xs rounded-full w-16 h-auto animate-pulse"
@@ -59,11 +61,11 @@ export const SpotifyCard: React.FC = () => {
         </div>
         <div className="relative overflow-hidden h-full md:lg:flex hidden items-center  backdrop-blur-md  rounded-full">
           <div className="px-3 py-2 pl-18 flex items-center">
-            <p className="font-bold z-[99999] ">{song.title}</p>
+            <p className="font-bold z-[99999] ">{song.item.name}</p>
           </div>
           <Image
-            src={song.albumImageUrl}
-            alt={song.album}
+            src={song.item.album.images[0].url}
+            alt={song.item.album.name}
             width={400}
             height={400}
             className=" w-full h-full object-center blur-[2px] object-cover absolute right-0 top-0 -z-10 opacity-20 group-hover:scale-125 transition-all duration-300"

@@ -17,6 +17,7 @@ export async function GET(request: Request) {
       { status: 400 }
     );
   }
+
   var authOptions = {
     url: "https://accounts.spotify.com/api/token",
     form: {

@@ -8,7 +8,7 @@ export const useImageColors = (imageUrl: string) => {
     Vibrant.from(imageUrl)
       .getPalette()
       .then((palette) => {
-        console.log(palette);
+        // console.log(palette);
         if (palette.Vibrant) {
           const hex = palette.Vibrant.hex;
           const rgb = parseInt(hex.slice(1), 16);

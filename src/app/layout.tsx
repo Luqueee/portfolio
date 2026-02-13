@@ -12,6 +12,8 @@ import { SpotifyCard } from "@/components/spotify/SpotifyCard";
 import { AnimatePresence } from "motion/react";
 import { ogUrl } from "@/lib/og";
 import Script from "next/script";
+import { Provider } from "./Provider";
+import { Radio } from "@/components/radio/Radio";
 
 gsap.registerPlugin(useGSAP);
 const inter = Inter({
@@ -114,38 +116,41 @@ export default function RootLayout({
       <body
         className={`${inter.className} ${inter.variable} antialiased max-w-screen overflow-x-hidden pb-25 px-4`}
       >
-        {/* <Scene /> */}
-        <div className="h-screen w-screen opacity-10 fixed top-0 left-0 -z-0">
-          <Silk
-            speed={8}
-            scale={1.2}
-            color="#ffffff"
-            noiseIntensity={3}
-            rotation={0}
+        <Provider>
+          {/* <Scene /> */}
+          <div className="h-screen w-screen opacity-10 fixed top-0 left-0 -z-0">
+            <Silk
+              speed={8}
+              scale={1.2}
+              color="#ffffff"
+              noiseIntensity={3}
+              rotation={0}
+            />
+          </div>
+          <div className="fixed right-4 bottom-4 z-[99999] flex gap-4 items-center">
+            {/* <Radio /> */}
+            <AnimatePresence mode="wait">
+              <SpotifyCard />
+            </AnimatePresence>
+          </div>
+          <NavBar />
+          <div className="max-w-[1920px] w-full pb-8 mx-auto px-4 h-fit flex flex-col items-center ">
+            {children}
+          </div>
+          <Footer />
+          <Script
+            id="ld-person"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }}
           />
-        </div>
-        <div className="fixed right-4 bottom-4 z-[99999]">
-          <AnimatePresence mode="wait">
-            <SpotifyCard />
-          </AnimatePresence>
-        </div>
-        <NavBar />
-        <div className="max-w-[1920px] w-full pb-8 mx-auto px-4 h-fit flex flex-col items-center ">
-          {children}
-        </div>
-        <Footer />
-        <Script
-          id="ld-person"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }}
-        />
-        <Script
-          id="ld-website"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(site) }}
-        />
-        <Analytics mode="production" />
-        <SpeedInsights />
+          <Script
+            id="ld-website"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(site) }}
+          />
+          <Analytics mode="production" />
+          <SpeedInsights />
+        </Provider>
       </body>
     </html>
   );

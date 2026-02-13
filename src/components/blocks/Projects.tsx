@@ -32,9 +32,11 @@ const ProjectCard: React.FC<{
       initial={{ opacity: 0, y: 20 }}
       animate={isInView && { opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      className="flex flex-col gap-4 py-4 bg-[#1a1a1a49]/30 backdrop-blur-sm rounded-lg "
+      className="flex flex-col gap-4 p-4 bg-[#1a1a1a49]/30 backdrop-blur-sm rounded-lg border border-zinc-800/40"
       {...props}
     >
+      <div className="overflow-hidden rounded-lg">
+
       <Image
         height={500}
         width={500}
@@ -42,8 +44,9 @@ const ProjectCard: React.FC<{
         alt={project.name}
         draggable="false"
         loading="lazy"
-        className="w-full h-fit rounded-lg"
+        className="w-full h-fit  hover:scale-110 transition-all duration-300"
       />
+      </div>
 
       <h4 className="text-xl font-[700]">{project.name}</h4>
       <p>{project.description}</p>
@@ -51,7 +54,7 @@ const ProjectCard: React.FC<{
         {project.tech_stack.map((tech, index) => (
           <span
             key={index}
-            className="inline-block bg-zinc-800 text-gray-200 px-2 py-1 rounded-lg text-sm mr-2 mb-2"
+            className="inline-block bg-zinc-800/10 backdrop-blur-sm select-none border border-zinc-800/40 text-gray-200 px-2 py-1 rounded-lg text-sm mr-2 mb-2"
           >
             {tech}
           </span>
@@ -62,7 +65,7 @@ const ProjectCard: React.FC<{
           <Link
             href={project.code}
             target="_blank"
-            className="inline-flex items-center gap-2 justify-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-zinc-800 h-10 px-4 py-2 relative group overflow-hidden text-gray-50 rounded-lg hover:bg-zinc-700 hover:text-gray-50 transition-all duration-500 "
+          className="inline-flex items-center gap-2 justify-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-zinc-800/20 backdrop-blur-sm border border-zinc-800 h-10 px-4 py-2 relative group overflow-hidden text-gray-50 rounded-lg hover:bg-zinc-700 hover:text-gray-50 transition-all duration-500 "
           >
             <IconCode />
             <span>Source Code</span>
@@ -73,7 +76,7 @@ const ProjectCard: React.FC<{
           <Link
             href={project.demo}
             target="_blank"
-            className="inline-flex items-center gap-2 justify-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-zinc-800 h-10 px-4 py-2 relative group overflow-hidden text-gray-50 rounded-lg hover:bg-zinc-700 hover:text-gray-50 transition-all duration-500 "
+          className="inline-flex items-center gap-2 justify-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-zinc-800/20 backdrop-blur-sm border border-zinc-800 h-10 px-4 py-2 relative group overflow-hidden text-gray-50 rounded-lg hover:bg-zinc-700 hover:text-gray-50 transition-all duration-500 "
           >
             <IconWorld />
             <span>Website</span>
