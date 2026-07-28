@@ -111,5 +111,4 @@ export interface ExternalIDS {
     upc: string;
 }
 
-export interface LinkedFrom {
-}
+export type LinkedFrom = Record<string, unknown>;

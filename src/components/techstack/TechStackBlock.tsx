@@ -3,7 +3,6 @@ import { languages } from "@/shared/tech-stack";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import Image from "next/image";
 import { TechStack } from "./TechStack";
 import { isDev } from "@/lib/utils";
 export const TechStackBlock = () => {

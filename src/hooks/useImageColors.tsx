@@ -18,7 +18,7 @@ export const useImageColors = (imageUrl: string) => {
           setBackgroundColor(`rgba(${r}, ${g}, ${b}, 0.15)`);
         }
       });
-  }, []);
+  }, [imageUrl]);
 
   return { backgroundColor };
 };

@@ -21,12 +21,13 @@ export function Hero() {
           Adrià Cabrera Luque
         </motion.h2>
         <motion.h1
-          style={{}}
-          initial={{
+          style={{
             backgroundClip: "text",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             color: "#ffffff",
+          }}
+          initial={{
             backgroundImage:
               "linear-gradient(180deg,rgba(207, 202, 202, 1) 0%, rgba(207, 202, 202, 1) 50%, rgba(207, 202, 202, 1) 100%)",
           }}

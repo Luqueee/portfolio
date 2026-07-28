@@ -1,0 +1,13 @@
+overrides:
+  '@types/react': 19.2.17
+  '@types/react-dom': 19.2.3
+
+# pnpm v11 replaced `onlyBuiltDependencies` with this allowlist.
+# Only sharp needs its install script (Next.js image optimization);
+# the rest ship prebuilt binaries and are fine without one.
+allowBuilds:
+  sharp: true
+  '@parcel/watcher': false
+  '@tailwindcss/oxide': false
+  esbuild: false
+  unrs-resolver: false

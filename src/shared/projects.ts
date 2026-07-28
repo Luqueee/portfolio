@@ -1,4 +1,4 @@
-import { Language, Languages } from "@/types/languages";
+import { Languages } from "@/types/languages";
 
 export interface Project {
   name: string;
