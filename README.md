@@ -19,7 +19,7 @@ bun run dev
 - Deploy the **contents of `dist/`**, serving `/projects/` from `projects/index.html` and `/` from `index.html`. Preserve `robots.txt`, `sitemap.xml`, `og.png`, `favicon.png`, and `apple-touch-icon.png` at the origin root. The site icons are resized and cropped from the supplied `logo-portfolio.png`. Unknown paths should return HTTP 404 rather than a 200 response with home-page metadata.
 - After deployment, verify the public response at `https://luqueee.dev/` and `https://luqueee.dev/projects/` and submit the sitemap to your search engine webmaster tools; local builds do not establish that production is deployed or indexed.
 
-The homepage and `/projects` show [mole](https://mole.luqueee.dev/) and [Kivgraph](https://kivgraph.dev/) in a minimal editorial list. Experience links are separate from project entries.
+The homepage and `/projects` show [Mole](https://mole.luqueee.dev/) and [Kivgraph](https://kivgraph.dev/) in a minimal editorial list. Experience links are separate from project entries.
 
 The site uses a charcoal dark theme throughout, without a theme switcher.
 

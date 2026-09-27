@@ -18,7 +18,7 @@ const technologies = {
 
 const featuredProjects = [
   {
-    name: 'mole',
+    name: 'Mole',
     kind: 'Go · CLI',
     description: 'One SSH connection that discovers and forwards your remote development ports automatically.',
     website: 'https://mole.luqueee.dev/',

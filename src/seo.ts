@@ -4,11 +4,11 @@ export const socialImage = `${siteUrl}/og.png`
 export const pages = {
   '/': {
     title: 'luqueee — Developer',
-    description: 'I make things I wish already existed. Explore mole, Kivgraph, my experience, and the tools I use to build software.',
+    description: 'I make things I wish already existed. Explore Mole, Kivgraph, my experience, and the tools I use to build software.',
   },
   '/projects': {
     title: 'Projects — luqueee',
-    description: 'Explore mole, an auto-discovering SSH port forwarder, and Kivgraph, local code intelligence for coding agents.',
+    description: 'Explore Mole, an auto-discovering SSH port forwarder, and Kivgraph, local code intelligence for coding agents.',
   },
 } as const
 
@@ -46,7 +46,7 @@ export function structuredData(path: PagePath) {
     mainEntity: {
       '@type': 'ItemList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'mole', url: 'https://mole.luqueee.dev/' },
+        { '@type': 'ListItem', position: 1, name: 'Mole', url: 'https://mole.luqueee.dev/' },
         { '@type': 'ListItem', position: 2, name: 'Kivgraph', url: 'https://kivgraph.dev/' },
       ],
     },
