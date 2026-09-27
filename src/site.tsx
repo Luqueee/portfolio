@@ -47,11 +47,11 @@ function ProjectList() {
           <div className="project-summary">
             <h3><Link to={project.path} viewTransition>{project.name} <ArrowRight size={18} /></Link></h3>
             <p>{project.description}</p>
-          </div>
-          <div className="project-links">
-            <Link to={project.path} viewTransition>Read story <ArrowRight size={13} /></Link>
-            <a href={project.website} target="_blank" rel="noopener noreferrer">Website <ArrowUpRight size={13} /></a>
-            <a href={project.repository} target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight size={13} /></a>
+            <div className="project-links">
+              <Link to={project.path} viewTransition>Read story <ArrowRight size={13} /></Link>
+              <a href={project.website} target="_blank" rel="noopener noreferrer">Website <ArrowUpRight size={13} /></a>
+              <a href={project.repository} target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight size={13} /></a>
+            </div>
           </div>
         </article>
       ))}
