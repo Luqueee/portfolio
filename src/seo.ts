@@ -1,5 +1,9 @@
+import { projects, type Project } from './projects'
+
 export const siteUrl = 'https://luqueee.dev'
 export const socialImage = `${siteUrl}/og.png`
+
+export type PagePath = '/' | '/projects' | Project['path']
 
 export const pages = {
   '/': {
@@ -10,9 +14,15 @@ export const pages = {
     title: 'Projects — luqueee',
     description: 'Explore Mole, an auto-discovering SSH port forwarder, and Kivgraph, local code intelligence for coding agents.',
   },
-} as const
+  ...Object.fromEntries(projects.map((project) => [
+    project.path,
+    { title: `${project.name} — Projects — luqueee`, description: project.articleDescription },
+  ])),
+} as Record<PagePath, { title: string; description: string }>
 
-export type PagePath = keyof typeof pages
+export function isPagePath(path: string): path is PagePath {
+  return Object.hasOwn(pages, path)
+}
 
 export function pageUrl(path: PagePath) {
   return `${siteUrl}${path === '/' ? '/' : `${path}/`}`
@@ -38,17 +48,35 @@ export function structuredData(path: PagePath) {
     ]
   }
 
-  return [{
+  if (path === '/projects') return [{
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: pages['/projects'].title,
     url: pageUrl('/projects'),
     mainEntity: {
       '@type': 'ItemList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Mole', url: 'https://mole.luqueee.dev/' },
-        { '@type': 'ListItem', position: 2, name: 'Kivgraph', url: 'https://kivgraph.dev/' },
-      ],
+      itemListElement: projects.map((project, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: project.name,
+        url: pageUrl(project.path),
+      })),
+    },
+  }]
+
+  const project = projects.find((item) => item.path === path)!
+  return [{
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: pages[path].title,
+    description: pages[path].description,
+    url: pageUrl(path),
+    author: { '@type': 'Person', name: 'luqueee', url: siteUrl },
+    about: {
+      '@type': 'SoftwareApplication',
+      name: project.name,
+      url: project.website,
+      codeRepository: project.repository,
     },
   }]
 }
@@ -64,7 +92,7 @@ export function metadataMarkup(path: PagePath) {
     `<meta name="description" content="${escapeAttribute(description)}" />`,
     `<link rel="canonical" href="${pageUrl(path)}" />`,
     '<meta name="robots" content="index, follow" />',
-    '<meta property="og:type" content="website" />',
+    `<meta property="og:type" content="${path.startsWith('/projects/') ? 'article' : 'website'}" />`,
     '<meta property="og:site_name" content="luqueee" />',
     '<meta property="og:locale" content="en_US" />',
     `<meta property="og:title" content="${escapeAttribute(title)}" />`,

@@ -1,7 +1,11 @@
-import { useLayoutEffect, type ReactNode } from 'react'
+import { useLayoutEffect, type ComponentProps, type ReactNode } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight, Github, Instagram, Mail } from 'lucide-react'
-import { pageUrl, pages, socialImage, structuredData } from './seo'
+import ReactMarkdown from 'react-markdown'
+import moleArticle from '../content/projects/mole.md?raw'
+import kivgraphArticle from '../content/projects/kivgraph.md?raw'
+import { projects, type Project, type ProjectSlug } from './projects'
+import { isPagePath, pageUrl, pages, socialImage, structuredData } from './seo'
 
 const email = 'luqueee_@outlook.es'
 
@@ -15,24 +19,13 @@ const technologies = {
   Docker: 'docker.svg',
   Redis: 'redis.svg',
 } as const
-
-const featuredProjects = [
-  {
-    name: 'Mole',
-    kind: 'Go · CLI',
-    description: 'One SSH connection that discovers and forwards your remote development ports automatically.',
-    website: 'https://mole.luqueee.dev/',
-    repository: 'https://github.com/Luqueee/mole',
-  },
-  {
-    name: 'Kivgraph',
-    kind: 'Go · MCP',
-    description: 'Local code intelligence for coding agents, with exact symbol references and cross-repository change impact.',
-    website: 'https://kivgraph.dev/',
-    repository: 'https://github.com/Luqueee/kivgraph',
-  },
-]
-
+const articles: Record<ProjectSlug, string> = {
+  mole: moleArticle,
+  kivgraph: kivgraphArticle,
+}
+const markdownComponents = {
+  a: ({ href, children }: ComponentProps<'a'>) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>,
+}
 type Technology = keyof typeof technologies
 
 function TechnologyLabel({ name, inline = false }: { name: Technology; inline?: boolean }) {
@@ -48,14 +41,15 @@ function TechnologyLabel({ name, inline = false }: { name: Technology; inline?: 
 function ProjectList() {
   return (
     <div className="project-list">
-      {featuredProjects.map((project) => (
+      {projects.map((project) => (
         <article className="project-row" key={project.name}>
           <span className="project-kind">{project.kind}</span>
           <div className="project-summary">
-            <h3><a href={project.website} target="_blank" rel="noopener noreferrer">{project.name} <ArrowUpRight size={18} /></a></h3>
+            <h3><Link to={project.path} viewTransition>{project.name} <ArrowRight size={18} /></Link></h3>
             <p>{project.description}</p>
           </div>
           <div className="project-links">
+            <Link to={project.path} viewTransition>Read story <ArrowRight size={13} /></Link>
             <a href={project.website} target="_blank" rel="noopener noreferrer">Website <ArrowUpRight size={13} /></a>
             <a href={project.repository} target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight size={13} /></a>
           </div>
@@ -109,12 +103,13 @@ function RevealOnScroll() {
 function PageMetadata() {
   const { pathname } = useLocation()
   useLayoutEffect(() => {
-    const path = pathname === '/projects/' ? '/projects' : pathname
-    if (path !== '/' && path !== '/projects') return
+    const path = pathname !== '/' && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname
+    if (!isPagePath(path)) return
     const page = pages[path]
     document.title = page.title
     const metadata: Record<string, string> = {
       'description': page.description,
+      'og:type': path.startsWith('/projects/') ? 'article' : 'website',
       'og:title': page.title,
       'og:description': page.description,
       'og:url': pageUrl(path),
@@ -197,6 +192,25 @@ export function Home() {
           <a href={`mailto:${email}`}><Mail size={16} /> Email <ArrowUpRight size={13} /></a>
         </div>
       </section>
+    </main>
+  )
+}
+
+export function ProjectArticle({ project }: { project: Project }) {
+  return (
+    <main className="content project-article">
+      <Link to="/projects" className="article-breadcrumb" viewTransition><ArrowRight size={14} /> All projects</Link>
+      <div className="eyebrow"><span className="eyebrow-number">/ 01</span> {project.kind} <span className="eyebrow-line" /></div>
+      <h1>{project.name}<span className="heading-period">.</span></h1>
+      <p className="lead">{project.description}</p>
+      <div className="article-actions">
+        <a href={project.website} target="_blank" rel="noopener noreferrer">Website <ArrowUpRight size={14} /></a>
+        <a href={project.repository} target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight size={14} /></a>
+      </div>
+      <article className="article-body prose">
+        <ReactMarkdown components={markdownComponents}>{articles[project.slug]}</ReactMarkdown>
+      </article>
+      <Link to="/projects" className="back-link" viewTransition>Back to all projects <ArrowRight size={16} /></Link>
     </main>
   )
 }
