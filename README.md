@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# luqueee's Portfolio
 
-## Getting Started
+A personal portfolio built with React, React Router, and Vite. Its editorial design draws inspiration from the simplicity of antfu.me, with its own content and identity.
 
-First, run the development server:
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`bun run build` checks TypeScript, builds the client and prerenders `/` and `/projects/` into `dist/index.html` and `dist/projects/index.html`. Both pages have readable HTML before JavaScript executes. `bun run preview` serves the production output locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## SEO and deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Canonical origin: `https://luqueee.dev` (taken from the previous portfolio configuration). Change `src/seo.ts` and the URLs in `public/robots.txt` and `public/sitemap.xml` together if the domain changes.
+- `src/seo.ts` owns per-page titles, descriptions, Open Graph/Twitter metadata, and JSON-LD; Vite injects home metadata during development/build, then `scripts/prerender.ts` writes the distinct projects page.
+- `public/og.png` is the 1200×630 social preview rendered from `public/og.svg`. `public/robots.txt` points to `public/sitemap.xml`.
+- Deploy the **contents of `dist/`**, serving `/projects/` from `projects/index.html` and `/` from `index.html`. Preserve `robots.txt`, `sitemap.xml`, `og.png`, `favicon.png`, and `apple-touch-icon.png` at the origin root. The site icons are resized and cropped from the supplied `logo-portfolio.png`. Unknown paths should return HTTP 404 rather than a 200 response with home-page metadata.
+- After deployment, verify the public response at `https://luqueee.dev/` and `https://luqueee.dev/projects/` and submit the sitemap to your search engine webmaster tools; local builds do not establish that production is deployed or indexed.
 
-## Learn More
+The homepage and `/projects` show [mole](https://mole.luqueee.dev/) and [Kivgraph](https://kivgraph.dev/) in a minimal editorial list. Experience links are separate from project entries.
 
-To learn more about Next.js, take a look at the following resources:
+The site uses a charcoal dark theme throughout, without a theme switcher.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Page navigation, first-load content, project hover states, and sections entering the viewport use subtle transitions. Reduced-motion preferences disable the animation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Technology logos are served from [SVGL](https://svgl.app/), using dark-background variants where available.

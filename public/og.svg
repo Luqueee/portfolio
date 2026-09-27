@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1a1b1d"/>
+  <circle cx="1100" cy="92" r="280" fill="#222b27" opacity=".45"/>
+  <path d="M80 145h1040M80 490h1040" stroke="#39423b" stroke-width="2"/>
+  <circle cx="91" cy="200" r="6" fill="#aec2aa"/>
+  <text x="114" y="207" font-family="DejaVu Sans,sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#aec2aa">DEVELOPER &amp; MAKER</text>
+  <text x="80" y="360" font-family="DejaVu Sans,sans-serif" font-size="92" font-weight="700" letter-spacing="-6" fill="#f1f3ed">luqueee<tspan fill="#aec2aa">.</tspan></text>
+  <text x="80" y="428" font-family="DejaVu Sans,sans-serif" font-size="31" fill="#cbd1ca">I make things I wish already existed.</text>
+  <text x="80" y="550" font-family="DejaVu Sans,sans-serif" font-size="21" fill="#a0a99f">mole  /  Kivgraph</text>
+  <text x="1090" y="550" text-anchor="end" font-family="DejaVu Sans,sans-serif" font-size="20" fill="#aec2aa">luqueee.dev</text>
+</svg>
