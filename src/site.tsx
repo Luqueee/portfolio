@@ -147,13 +147,12 @@ function Header() {
 }
 
 function Footer() {
-  return <footer className="site-footer"><span>© {new Date().getFullYear()} luqueee</span><span>Made with care and coffee <span aria-hidden="true">↗</span></span></footer>
+  return <footer className="site-footer"><span>© {new Date().getFullYear()} luqueee</span></footer>
 }
 
 export function Home() {
   return (
     <main className="content home">
-      <div className="eyebrow"><span className="status-dot" /> Open to new ideas <span className="eyebrow-line" /></div>
       <h1>Hey, I'm luqueee<span className="heading-period">.</span></h1>
       <p className="lead">I make things I wish already existed.</p>
 

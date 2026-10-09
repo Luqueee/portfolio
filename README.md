@@ -29,7 +29,7 @@ The Qwen on A10 story documents the [qwen38-a10-llamampere repository](https://g
 
 The homepage and `/projects` show [Mole](https://mole.luqueee.dev/), [Kivgraph](https://kivgraph.dev/), and [Qwen on A10](https://github.com/Luqueee/qwen38-a10-llamampere) in a minimal editorial list. Experience links are separate from project entries.
 
-The site uses a charcoal dark theme throughout, without a theme switcher.
+The site uses a charcoal dark theme throughout, without a theme switcher. The homepage starts directly with its introduction heading; the footer contains only the copyright.
 
 Page navigation, first-load content, project hover states, and sections entering the viewport use subtle transitions. Reduced-motion preferences disable the animation.
 

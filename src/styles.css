@@ -44,7 +44,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 .content { width: min(100% - 48px, 700px); margin: 93px auto 0; flex: 1; }
 .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-.status-dot { width: 7px; height: 7px; border-radius: 50%; background: #86a683; box-shadow: 0 0 0 4px rgba(134, 166, 131, .15); margin: 0 4px; }
 .eyebrow-line { height: 1px; flex: 1; background: var(--line); margin-left: 10px; }
 h1, h2, p { margin-top: 0; }
 h1, h2 { font-family: 'Manrope', sans-serif; color: var(--heading); }
@@ -67,7 +66,7 @@ h1 { font-size: clamp(40px, 6.6vw, 62px); letter-spacing: -.068em; font-weight: 
   to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 .motion-ready .site-header { animation: rise-in .7s cubic-bezier(.22,1,.36,1) both; }
-.motion-ready .home > .eyebrow, .motion-ready .projects > .eyebrow { animation: rise-in .65s cubic-bezier(.22,1,.36,1) both; }
+.motion-ready .projects > .eyebrow { animation: rise-in .65s cubic-bezier(.22,1,.36,1) both; }
 .motion-ready .home > h1, .motion-ready .projects > h1 { animation: rise-in .85s .08s cubic-bezier(.22,1,.36,1) both; }
 .motion-ready .home > .lead, .motion-ready .projects > .lead { animation: rise-in .85s .18s cubic-bezier(.22,1,.36,1) both; }
 .motion-ready .intro p { animation: rise-in .8s cubic-bezier(.22,1,.36,1) both; }
