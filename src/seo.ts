@@ -8,11 +8,11 @@ export type PagePath = '/' | '/projects' | Project['path']
 export const pages = {
   '/': {
     title: 'luqueee — Developer',
-    description: 'I make things I wish already existed. Explore Mole, Kivgraph, my experience, and the tools I use to build software.',
+    description: 'I make things I wish already existed. Explore Mole, Kivgraph, my Qwen on A10 research, and the tools I use to build software.',
   },
   '/projects': {
     title: 'Projects — luqueee',
-    description: 'Explore Mole, an auto-discovering SSH port forwarder, and Kivgraph, local code intelligence for coding agents.',
+    description: 'Explore Mole, Kivgraph, and my research on serving Qwen3.8-27B on a single NVIDIA A10 with llamAmpere.',
   },
   ...Object.fromEntries(projects.map((project) => [
     project.path,

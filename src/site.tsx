@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight, Github, Instagram, Mail } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import moleArticle from '../content/projects/mole.md?raw'
 import kivgraphArticle from '../content/projects/kivgraph.md?raw'
+import qwenA10Article from '../content/projects/qwen-a10.md?raw'
 import { projects, type Project, type ProjectSlug } from './projects'
 import { isPagePath, pageUrl, pages, socialImage, structuredData } from './seo'
 
@@ -22,6 +23,7 @@ const technologies = {
 const articles: Record<ProjectSlug, string> = {
   mole: moleArticle,
   kivgraph: kivgraphArticle,
+  'qwen-a10': qwenA10Article,
 }
 const markdownComponents = {
   a: ({ href, children }: ComponentProps<'a'>) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>,
@@ -49,7 +51,7 @@ function ProjectList() {
             <p>{project.description}</p>
             <div className="project-links">
               <Link to={project.path} viewTransition>Read story <ArrowRight size={13} /></Link>
-              <a href={project.website} target="_blank" rel="noopener noreferrer">Website <ArrowUpRight size={13} /></a>
+              <a href={project.website} target="_blank" rel="noopener noreferrer">{'websiteLabel' in project ? project.websiteLabel : 'Website'} <ArrowUpRight size={13} /></a>
               <a href={project.repository} target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight size={13} /></a>
             </div>
           </div>
@@ -204,7 +206,7 @@ export function ProjectArticle({ project }: { project: Project }) {
       <h1>{project.name}<span className="heading-period">.</span></h1>
       <p className="lead">{project.description}</p>
       <div className="article-actions">
-        <a href={project.website} target="_blank" rel="noopener noreferrer">Website <ArrowUpRight size={14} /></a>
+        <a href={project.website} target="_blank" rel="noopener noreferrer">{'websiteLabel' in project ? project.websiteLabel : 'Website'} <ArrowUpRight size={14} /></a>
         <a href={project.repository} target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight size={14} /></a>
       </div>
       <article className="article-body prose">

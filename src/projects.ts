@@ -19,6 +19,17 @@ export const projects = [
     website: 'https://kivgraph.dev/',
     repository: 'https://github.com/Luqueee/kivgraph',
   },
+  {
+    slug: 'qwen-a10',
+    path: '/projects/qwen-a10',
+    name: 'Qwen on A10',
+    kind: 'LLM · Research',
+    description: 'Serving Qwen3.8-27B on one 24 GB NVIDIA A10: real ERP workloads, speculative decoding, and evidence-driven optimization.',
+    articleDescription: 'My NaN-tic internship research: optimizing Qwen3.8-27B on a single NVIDIA A10 with llamAmpere, frozen request replays, and correctness checks.',
+    website: 'https://github.com/Luqueee/qwen38-a10-llamampere/blob/main/docs/final-configuration.md',
+    websiteLabel: 'Documentation',
+    repository: 'https://github.com/Luqueee/qwen38-a10-llamampere',
+  },
 ] as const
 
 export type Project = (typeof projects)[number]
