@@ -17,6 +17,7 @@ const technologies = {
   Python: 'python.svg',
   Go: 'golang_dark.svg',
   MongoDB: 'mongodb-icon-dark.svg',
+  PostgreSQL: 'postgresql.svg',
   Docker: 'docker.svg',
   Redis: 'redis.svg',
 } as const
@@ -45,7 +46,6 @@ function ProjectList() {
     <div className="project-list">
       {projects.map((project) => (
         <article className="project-row" key={project.name}>
-          <span className="project-kind">{project.kind}</span>
           <div className="project-summary">
             <h3><Link to={project.path} viewTransition>{project.name} <ArrowRight size={18} /></Link></h3>
             <p>{project.description}</p>
@@ -179,7 +179,7 @@ export function Home() {
         <div className="section-heading"><span className="section-index">03 /</span><h2 id="stack-title">Everyday tools</h2></div>
         <p className="section-description">A small selection of the technologies I build with.</p>
         <div className="stack-list" aria-label="Technologies">
-          {(['TypeScript', 'React', 'Node.js', 'Python', 'Go', 'MongoDB', 'Docker', 'Redis'] as Technology[]).map((technology) => <TechnologyLabel name={technology} key={technology} />)}
+          {(['TypeScript', 'React', 'Node.js', 'Python', 'Go', 'MongoDB', 'PostgreSQL', 'Docker', 'Redis'] as Technology[]).map((technology) => <TechnologyLabel name={technology} key={technology} />)}
         </div>
       </section>
 

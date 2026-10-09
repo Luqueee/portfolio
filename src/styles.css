@@ -88,26 +88,26 @@ h1 { font-size: clamp(40px, 6.6vw, 62px); letter-spacing: -.068em; font-weight: 
 .section-index { font-family: 'Manrope', sans-serif; font-size: 11px; letter-spacing: .03em; color: var(--accent); font-weight: 700; white-space: nowrap; }
 h2 { font-size: 19px; font-weight: 700; letter-spacing: -.04em; line-height: 1.45; margin: 0; }
 .project-list { margin-top: 25px; }
-.project-row { display: grid; grid-template-columns: 95px minmax(0, 1fr); align-items: start; gap: 22px; padding: 27px 0; border-bottom: 1px solid var(--line); transition: background-color .3s ease; }
+.project-row { position: relative; isolation: isolate; padding: 27px 24px; border-bottom: 1px solid var(--line); transition: background-color .3s ease; }
 .project-row:hover { background-color: rgba(174, 194, 170, .045); }
 .project-row:first-child { border-top: 1px solid var(--line); }
-.project-kind { align-self: start; padding-top: 7px; color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
 .project-summary h3 { margin: 0 0 5px; color: var(--heading); font-family: 'Manrope', sans-serif; font-size: 23px; letter-spacing: -.045em; }
 .project-summary h3 a { display: inline-flex; align-items: center; gap: 6px; }
-.project-summary h3 a svg { color: var(--accent); transition: transform .3s cubic-bezier(.22,1,.36,1); }
-.project-row:hover .project-summary h3 a svg { transform: translate(3px, -3px); }
+.project-summary h3 a::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+.project-summary h3 a:focus-visible::after { outline: 2px solid var(--accent); outline-offset: 4px; }
+.project-summary h3 a svg { color: var(--accent); }
 .project-summary h3 a:hover { color: var(--accent); }
 .project-summary p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
 .project-links { display: flex; flex-wrap: wrap; gap: 12px 25px; margin-top: 16px; }
-.project-links a { display: inline-flex; align-items: center; gap: 4px; color: var(--text); font-size: 11px; font-weight: 700; white-space: nowrap; }
+.project-links a { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 4px; color: var(--text); font-size: 11px; font-weight: 700; white-space: nowrap; }
 .project-links a:hover, .project-links svg { color: var(--accent); }
 .experience-list { margin: 26px 0 0 45px; }
 .experience-item { display: block; border-bottom: 1px solid var(--line); padding: 17px 0; font-size: 14px; transition: padding .2s ease; }
 .experience-item:first-child { border-top: 1px solid var(--line); }
 .experience-item:hover { padding-left: 7px; }
 .experience-name { font-weight: 700; color: var(--heading); display: inline-flex; align-items: center; gap: 5px; }
-.experience-name svg { color: var(--muted); transition: transform .2s ease; }
-.experience-item:hover .experience-name svg { transform: translate(2px, -2px); color: var(--accent); }
+.experience-name svg { color: var(--muted); }
+.experience-item:hover .experience-name svg { color: var(--accent); }
 .section-description { color: var(--muted); font-size: 14px; line-height: 1.7; margin: 17px 0 22px 45px; }
 .stack-list { display: flex; gap: 9px; flex-wrap: wrap; margin-left: 45px; }
 .stack-tag { background: var(--soft); color: var(--text); padding: 7px 12px; border-radius: 5px; font-size: 12px; font-weight: 600; transition: transform .3s cubic-bezier(.22,1,.36,1), background-color .3s ease; }
@@ -128,8 +128,6 @@ h2 { font-size: 19px; font-weight: 700; letter-spacing: -.04em; line-height: 1.4
 .projects .back-link { margin-bottom: 100px; }
 .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--heading); border-bottom: 1px solid var(--line); padding-bottom: 5px; }
 .back-link:hover { color: var(--accent); border-color: var(--accent); }
-.back-link svg { transition: transform .2s ease; }
-.back-link:hover svg { transform: translateX(3px); }
 
 .project-article { margin-top: 64px; }
 .article-breadcrumb { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; font-weight: 600; margin-bottom: 45px; }
@@ -150,6 +148,25 @@ h2 { font-size: 19px; font-weight: 700; letter-spacing: -.04em; line-height: 1.4
 .article-body pre code { background: none; padding: 0; }
 .project-article > .back-link { margin: 26px 0 110px; }
 
+@media (prefers-reduced-motion: no-preference) {
+  .brand { transition: transform .25s cubic-bezier(.22,1,.36,1), scale .15s ease; }
+  .brand:is(:hover, :focus-visible) { transform: rotate(-1deg); }
+  .brand:active { scale: .96; }
+
+  :is(.project-links a, .article-actions a) { position: relative; }
+  :is(.project-links a, .article-actions a)::after { content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .25s cubic-bezier(.22,1,.36,1); }
+  :is(.project-links a, .article-actions a):is(:hover, :focus-visible)::after { transform: scaleX(1); transform-origin: left; }
+
+  :is(.project-summary h3 a, .project-links a, .article-actions a, .email-link, .experience-item, .back-link) svg { transition: transform .3s ease; }
+  :is(.project-links a, .article-actions a, .email-link, .experience-item):is(:hover, :focus-visible) svg.lucide-arrow-up-right { transform: translate(1px, -1px); }
+  :is(.project-summary h3 a, .project-links a, .back-link):is(:hover, :focus-visible) svg.lucide-arrow-right { transform: translateX(1px); }
+  .article-breadcrumb svg { transition: transform .3s ease; }
+  .article-breadcrumb:is(:hover, :focus-visible) svg { transform: translateX(-1px) rotate(180deg); }
+
+  :is(.project-links a, .article-actions a, .social-links a, .email-link, .back-link) { transition: color .2s ease, transform .25s cubic-bezier(.22,1,.36,1), scale .12s ease; }
+  :is(.project-links a, .article-actions a, .social-links a, .email-link, .back-link):active { scale: .97; }
+}
+
 @media (max-width: 640px) {
   .site-header { padding: 0 24px; min-height: 72px; }
   .top-nav { gap: 17px; font-size: 12px; }
@@ -158,8 +175,7 @@ h2 { font-size: 19px; font-weight: 700; letter-spacing: -.04em; line-height: 1.4
   h1 { margin-top: 26px; }
   .lead { margin-bottom: 32px; }
   .section { margin-top: 69px; }
-  .project-row { grid-template-columns: 1fr; gap: 12px; padding: 22px 0; }
-  .project-kind { padding-top: 0; }
+  .project-row { padding: 22px 16px; }
   .experience-list, .section-description, .stack-list, .email-link, .social-links { margin-left: 0; }
   .connect-section { margin-bottom: 85px; }
   .site-footer { flex-direction: column; gap: 7px; }
