@@ -1,24 +1,17 @@
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
-import { createBrowserRouter, Navigate } from 'react-router'
+import { createBrowserRouter, matchRoutes } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
-import { Home, ProjectArticle, Projects, SiteLayout } from './site'
-import { projects } from './projects'
+import { pageRoutes, routes } from './app/routes'
 import './styles.css'
 
-const router = createBrowserRouter([
-  { element: <SiteLayout />, children: [
-    { path: '/', element: <Home /> },
-    { path: '/projects', element: <Projects /> },
-    ...projects.map((project) => ({ path: project.path, element: <ProjectArticle project={project} /> })),
-    { path: '*', element: <Navigate to="/" replace /> },
-  ] },
-])
+const router = createBrowserRouter(routes)
 
 const root = document.getElementById('root')!
 const app = <StrictMode><RouterProvider router={router} /></StrictMode>
 
-if (root.hasChildNodes()) {
+// Unknown URLs receive the host's fallback HTML, not their own prerendered page.
+if (root.hasChildNodes() && matchRoutes(pageRoutes, window.location)) {
   hydrateRoot(root, app)
 } else {
   createRoot(root).render(app)
