@@ -1,4 +1,4 @@
-import { projects, type Project } from './projects'
+import { projects, type Project } from '../data/projects'
 
 export const siteUrl = 'https://luqueee.dev'
 export const socialImage = `${siteUrl}/og.png`
