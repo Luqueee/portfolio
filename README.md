@@ -38,6 +38,8 @@ The listening block is a minimal inline row without a card background, border, o
 
 `api/now-playing.ts` is a Vercel Node function using a Web Standard handler. `server/spotify.ts` refreshes the owner's access token server-side and returns only public track fields. Secrets never use a `VITE_` prefix or enter the client bundle. Successful playback responses are cached by the CDN for 15 seconds without stale-while-revalidate; browsers poll every 30 seconds while visible and refresh when returning to the tab. Spotify rate limits honor `Retry-After`. Playback updates can therefore take up to roughly 45 seconds to appear.
 
+The function's runtime import uses `../server/spotify.js`: TypeScript resolves the source `.ts` file, while deployed Node ESM resolves the emitted `.js` file. Extensionless relative imports can pass Vite/Bun checks but fail at function startup with `ERR_MODULE_NOT_FOUND`; verify server entry points by executing their emitted JavaScript with Node.
+
 ### Connect your account
 
 1. Create an app in the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard). Register **exactly** `http://127.0.0.1:8888/callback` as its redirect URI; if the app is in development mode, ensure your account is permitted to use it.
