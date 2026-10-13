@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router'
+import { RouterProvider } from 'react-router/dom'
 import { Home, ProjectArticle, Projects, SiteLayout } from './site'
 import { projects } from './projects'
 import './styles.css'

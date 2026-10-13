@@ -1,5 +1,5 @@
 import { useLayoutEffect, type ComponentProps, type ReactNode } from 'react'
-import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
+import { Link, NavLink, Outlet, useLocation } from 'react-router'
 import { ArrowRight, ArrowUpRight, Github, Instagram, Mail } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import moleArticle from '../content/projects/mole.md?raw'

@@ -4,6 +4,10 @@ A personal portfolio built with React, React Router, and Vite. Its editorial des
 
 ## Development
 
+Use Bun 1.4.2 (the version declared in `package.json`). When running with Node.js, React Router 8 requires Node 22.22 or newer. React and React DOM must be 19.2.7 or newer.
+
+Routing uses React Router 8 in Data Mode: import routing APIs from `react-router` and the browser `RouterProvider` from `react-router/dom`. The prerender script uses `StaticRouter` from `react-router`. There is no `react-router-dom` dependency or React Router framework plugin.
+
 ```bash
 bun install
 bun run dev
