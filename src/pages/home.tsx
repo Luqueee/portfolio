@@ -6,6 +6,7 @@ import { Lead, PageContent, PageHeading } from '../components/page'
 import { ProjectList } from '../components/project-list'
 import { Section } from '../components/section'
 import { TechnologyLabel } from '../components/technology-label'
+import { NowPlaying } from '../components/now-playing'
 
 const contacts = Object.values(socialLinks)
 const socialIcons = { github: Github, instagram: Instagram, email: Mail }
@@ -23,6 +24,7 @@ export function Home() {
         <p className="mt-0 mb-[20px] motion-ready:motion-safe:animate-rise-in motion-ready:motion-safe:[animation-delay:.38s]">I work with technologies like <TechnologyLabel name="React" inline />, <TechnologyLabel name="TypeScript" inline /> and <TechnologyLabel name="Node.js" inline />, on the frontend and behind the scenes. I believe in simple interfaces and software that's a pleasure to use.</p>
         <p className="mt-0 mb-[20px] motion-ready:motion-safe:animate-rise-in motion-ready:motion-safe:[animation-delay:.47s]">Take a look at my <Link to="/projects" viewTransition className="font-semibold whitespace-nowrap text-heading underline decoration-[#b4bfb1] underline-offset-[4px] hover:text-accent">projects page <ArrowUpRight size={14} className="inline align-[-2px]" /></Link> or find me through the links below.</p>
       </div>
+      <NowPlaying />
 
       <Section index="01" title="Featured projects" id="featured-title">
         <ProjectList />
