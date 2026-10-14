@@ -1,10 +1,11 @@
 import { useId, type ReactNode } from 'react'
-import { AppWindow, Clipboard, Clock3, Download, FileText, FolderCog, GitMerge, Globe2, Laptop, LockKeyhole, ScanLine, Server, Terminal, type LucideIcon } from 'lucide-react'
+import { AppWindow, Bot, Braces, Clipboard, Clock3, Database, Download, FileText, FolderCog, GitMerge, Globe2, Layers3, Laptop, LockKeyhole, Network, ScanLine, Server, Terminal, type LucideIcon } from 'lucide-react'
 
 const icons: Record<string, LucideIcon> = {
   browser: AppWindow, terminal: Terminal, server: Server, app: Globe2, clock: Clock3,
   scan: ScanLine, file: FileText, lock: LockKeyhole, clipboard: Clipboard,
   download: Download, merge: GitMerge, process: Laptop, config: FolderCog,
+  agent: Bot, code: Braces, storage: Database, snapshot: Layers3, graph: Network,
 }
 
 type DiagramLayout = { mobile: boolean; arrowId: string }
@@ -21,10 +22,10 @@ export function DiagramCanvas({ title, description, desktopHeight, mobileHeight,
   return <>
     {[false, true].map(mobile => {
       const suffix = mobile ? 'mobile' : 'desktop'
-      const arrowId = `mole-${id}-${suffix}-arrow`
-      return <svg key={suffix} role="img" aria-labelledby={`mole-${id}-${suffix}-title mole-${id}-${suffix}-description`} viewBox={`0 0 ${mobile ? 360 : 900} ${mobile ? mobileHeight : desktopHeight}`} className={mobile ? 'mx-auto block h-auto w-full max-w-[440px] text-foreground min-[801px]:hidden' : 'hidden h-auto w-full text-foreground min-[801px]:block'}>
-        <title id={`mole-${id}-${suffix}-title`}>{title}</title>
-        <desc id={`mole-${id}-${suffix}-description`}>{description}</desc>
+      const arrowId = `diagram-${id}-${suffix}-arrow`
+      return <svg key={suffix} role="img" aria-labelledby={`diagram-${id}-${suffix}-title diagram-${id}-${suffix}-description`} viewBox={`0 0 ${mobile ? 360 : 900} ${mobile ? mobileHeight : desktopHeight}`} className={mobile ? 'mx-auto block h-auto w-full max-w-[440px] text-foreground min-[801px]:hidden' : 'hidden h-auto w-full text-foreground min-[801px]:block'}>
+        <title id={`diagram-${id}-${suffix}-title`}>{title}</title>
+        <desc id={`diagram-${id}-${suffix}-description`}>{description}</desc>
         <defs>
           <marker id={arrowId} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 2 2 L 8 5 L 2 8" fill="none" stroke="var(--color-accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></marker>
           <linearGradient id={`${arrowId}-surface`} x1="0" y1="0" x2="1" y2="1">
@@ -44,7 +45,7 @@ export function DiagramNode({ x, y, label, detail, icon = 'terminal', muted = fa
   const details = detail ? Array.isArray(detail) ? detail : [detail] : []
   return <g transform={`translate(${x} ${y})`} opacity={muted ? .45 : 1}>
     <rect x="-22" y="-22" width="44" height="44" rx="13" fill="var(--color-soft)" fillOpacity=".7" stroke="var(--color-accent)" strokeOpacity=".22" />
-    {icon === 'process' ? <image href="/mole-icon.webp" x="-19" y="-19" width="38" height="38" /> : icon === 'browser' || icon === 'app' ? <g fill="none" stroke="var(--color-accent)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    {icon === 'process' || icon === 'kivgraph' ? <image href={icon === 'kivgraph' ? '/kivgraph-icon.svg' : '/mole-icon.webp'} x="-19" y="-19" width="38" height="38" /> : icon === 'browser' || icon === 'app' ? <g fill="none" stroke="var(--color-accent)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <rect x="-14" y="-11" width="28" height="23" rx="4" />
       <path d="M -14 -4 H 14" strokeOpacity=".5" />
       <circle cx="-9" cy="-7.5" r="1" fill="var(--color-accent)" stroke="none" /><circle cx="-5" cy="-7.5" r="1" fill="var(--color-accent)" fillOpacity=".45" stroke="none" />
