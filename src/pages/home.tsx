@@ -17,17 +17,17 @@ export function Home() {
   return (
     <PageContent>
       <PageHeading animate>Hey, I'm luqueee</PageHeading>
-      <Lead animate>I make things I wish already existed.</Lead>
+      <Lead animate>I build tools that make complex workflows feel simple.</Lead>
 
       <div className="text-[15px] leading-[1.9]">
-        <p className="mt-0 mb-[20px] motion-ready:motion-safe:animate-rise-in motion-ready:motion-safe:[animation-delay:.29s]">I'm <strong className="font-bold text-heading">luqueee</strong>. I like turning ideas into thoughtful digital products, paying attention to the details and learning something new along the way.</p>
-        <p className="mt-0 mb-[20px] motion-ready:motion-safe:animate-rise-in motion-ready:motion-safe:[animation-delay:.38s]">I work with technologies like <TechnologyLabel name="React" inline />, <TechnologyLabel name="TypeScript" inline /> and <TechnologyLabel name="Node.js" inline />, on the frontend and behind the scenes. I believe in simple interfaces and software that's a pleasure to use.</p>
+        <p className="mt-0 mb-[20px] motion-ready:motion-safe:animate-rise-in motion-ready:motion-safe:[animation-delay:.29s]">I'm <strong className="font-bold text-heading">luqueee</strong>. I build developer tools, from making remote development feel local to helping coding agents understand a codebase. I like taking the friction out of things I use every day.</p>
+        <p className="mt-0 mb-[20px] motion-ready:motion-safe:animate-rise-in motion-ready:motion-safe:[animation-delay:.38s]">I work across the stack with <TechnologyLabel name="React" inline />, <TechnologyLabel name="TypeScript" inline /> and <TechnologyLabel name="Go" inline />. Simple interfaces, useful software, and the details that make both feel right.</p>
         <p className="mt-0 mb-[20px] motion-ready:motion-safe:animate-rise-in motion-ready:motion-safe:[animation-delay:.47s]">Take a look at my <Link to="/projects" viewTransition className="font-semibold whitespace-nowrap text-heading underline decoration-[#b4bfb1] underline-offset-[4px] hover:text-accent">projects page <ArrowUpRight size={14} className="inline align-[-2px]" /></Link> or find me through the links below.</p>
       </div>
       <NowPlaying />
 
       <Section index="01" title="Featured projects" id="featured-title">
-        <ProjectList />
+        <ProjectList featured />
       </Section>
 
       <Section index="02" title="Experience" id="experience-title">

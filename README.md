@@ -72,6 +72,17 @@ The Qwen on A10 story documents the [qwen38-a10-llamampere repository](https://g
 
 The homepage and `/projects` show [Mole](https://mole.luqueee.dev/), [Kivgraph](https://kivgraph.dev/), and [Qwen on A10](https://github.com/Luqueee/qwen38-a10-llamampere) in a minimal single-column editorial list, without technology labels beside the titles. Each padded card links to its story through the title's stretched link; resource links remain independently clickable above that overlay. Project kinds remain on their article pages. Experience links are separate from project entries.
 
+Mole and Kivgraph have an optional `icon` in `src/data/projects.ts`, displayed decoratively at 28 × 28 px beside their card titles on both lists. The original marks are served locally as `public/mole-icon.webp` (from `https://mole.luqueee.dev/mole.webp`) and `public/kivgraph-icon.svg` (from `https://kivgraph.dev/favicon.svg`); projects without an icon keep their text-only title.
+Mole's transparent mark sits on a dark rounded background with 2 px of padding to visually match Kivgraph's icon tile; both retain the same 28 px outer size.
+
+The homepage additionally features Mole's actual `mole logs` screenshot from its repository README (`docs/mole-logs.png`), converted from PNG to `public/mole-logs.webp`. `MolePreview` provides responsive dimensions, lazy loading, descriptive alternative text, and a full-size image link above the card's stretched link. This is a static demonstration, not live terminal output; `/projects` retains the compact list. The introduction describes the developer-tool focus rather than generic product work.
+
+Kivgraph uses the same homepage-only treatment through `KivgraphPreview`: the real `docs/assets/kivgraph-viewer.png` screenshot from its README is converted from PNG to `public/kivgraph-viewer.webp`. Its caption identifies the read-only `kivgraph ui` viewer, with separate full-size image and upstream demo-video links. The screenshot is not an embedded interactive graph.
+
+Clicking either project preview image navigates to its project story in the same tab using React Router. Only the explicit “View full size” caption links open the image; Kivgraph's “Watch demo” remains an external video link.
+
+Project screenshots are encoded as WebP at quality 88 with a maximum width of 1600 px, stripped metadata, and encoder method 6. Their HTML dimensions match the encoded files (Mole: 1600 × 586; Kivgraph: 1600 × 924). Mole's icon is resized to 96 × 96 at quality 90; Kivgraph's small SVG remains unchanged. Use ImageMagick with explicit `webp:` output when refreshing these assets: changing a filename extension does not convert PNG bytes.
+
 The site uses a charcoal dark theme throughout, without a theme switcher. The homepage starts directly with its introduction heading; the footer contains only the copyright.
 
 Page navigation, first-load content, project hover states, and sections entering the viewport use subtle transitions. CSS-only microinteractions add sliding underlines to project actions, 1 px directional arrow movement on link hover and keyboard focus, a small press response on links, and a subtle brand tilt. These additions run only when `prefers-reduced-motion: no-preference`; reduced-motion preferences disable the animation.
