@@ -3,11 +3,20 @@ import ReactMarkdown, { type Components } from 'react-markdown'
 import { Link } from 'react-router'
 import { ExternalLink } from '../components/external-link'
 import { BackLink, Eyebrow, Lead, PageContent, PageHeading } from '../components/page'
+import { MoleArticleDiagram } from '../components/mole-article-diagram'
 import { articles } from '../data/articles'
 import type { Project } from '../data/projects'
+import type { MoleDiagramKind } from '../data/mole-diagram-sources'
 
 const markdownComponents = {
   a: ({ href, children }) => <ExternalLink href={href}>{children}</ExternalLink>,
+  p: ({ children }) => {
+    if (typeof children === 'string') {
+      const match = /^\[mole-diagram:(traffic|process|discovery|recovery|operations|clipboard|delivery)\]$/.exec(children)
+      if (match) return <MoleArticleDiagram kind={match[1] as MoleDiagramKind} />
+    }
+    return <p>{children}</p>
+  },
 } satisfies Components
 
 export function ProjectArticle({ project }: { project: Project }) {
@@ -45,7 +54,7 @@ export function ProjectArticle({ project }: { project: Project }) {
       <article
         className="border-t border-line pt-[2px] text-[15px] leading-[1.9]
           [&_h2]:mt-[42px] [&_h2]:mb-[14px] [&_h2]:font-heading [&_h2]:text-[22px] [&_h2]:font-bold [&_h2]:leading-[1.45] [&_h2]:tracking-[-.04em] [&_h2]:text-heading
-          [&_p]:m-0 [&_p]:mb-[20px] [&_p]:text-foreground [&_strong]:font-bold [&_strong]:text-heading [&_em]:italic [&_em]:text-heading
+          [&>p]:m-0 [&>p]:mb-[20px] [&>p]:text-foreground [&_strong]:font-bold [&_strong]:text-heading [&_em]:italic [&_em]:text-heading
           [&_a]:text-heading [&_a]:underline [&_a]:decoration-accent [&_a]:underline-offset-[4px] [&_a:hover]:text-accent
           [&_code]:rounded-[4px] [&_code]:bg-soft [&_code]:px-[5px] [&_code]:py-[2px] [&_code]:font-[family-name:monospace] [&_code]:text-[.9em] [&_code]:text-heading
           [&_pre]:mt-[12px] [&_pre]:mb-[24px] [&_pre]:overflow-x-auto [&_pre]:rounded-[6px] [&_pre]:border [&_pre]:border-line [&_pre]:bg-[#242a26] [&_pre]:px-[22px] [&_pre]:py-[18px] [&_pre]:font-[family-name:monospace] [&_pre]:leading-[1.7]
