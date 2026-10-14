@@ -30,6 +30,8 @@ Tailwind runs through `@tailwindcss/vite`; component styling lives in utility cl
 
 Edit theme tokens for site-wide design changes, shared components for repeated UI, and page modules for view-specific layout. Keep complete utility class strings rather than dynamically constructing Tailwind class names. Reveals remain readable in prerendered HTML before JavaScript runs and respect changes to `prefers-reduced-motion`.
 
+Page content and the footer share a 900 px maximum width, with 24 px margins on each side of narrow viewports. The native Mole diagram uses that same content width without breakout margins, keeping headings, article text, diagrams, and the footer aligned.
+
 ## Spotify now playing
 
 The home page shows “Listening to · Spotify” beneath the introduction while the owner's account is actively playing a track. It displays unchanged album artwork, the title, artists, and a link back to Spotify. Paused/idle playback, ads, podcasts, local files without a Spotify link, and API failures hide the block rather than display stale listening activity.
@@ -60,6 +62,16 @@ Mole, Kivgraph, and Qwen on A10 each have a Markdown article in `content/project
 For another project, add its data in `src/data/projects.ts`, its Markdown file and import in `src/data/articles.ts`, and its canonical URL in `public/sitemap.xml`. The typed article map requires content for every project slug. Client routes and prerendered pages are generated from the same project-backed route definitions.
 
 The Qwen on A10 story documents the [qwen38-a10-llamampere repository](https://github.com/Luqueee/qwen38-a10-llamampere), including the NaN-tic internship context, Tryton quality task, frozen inference replay, final configuration, and measurement limits. Its linked documentation and archived comparison are the sources for performance claims; distinguish historical experiments from the final serving spec when updating the article.
+
+Mole's story explains its purpose before detailing how it works. Seven inline `[mole-diagram:kind]` paragraphs in `content/projects/mole.md` render native figures through `src/components/mole-article-diagram.tsx`: TCP traffic, startup, discovery, recovery, local operations/logs, clipboard HTTP and delivery. Shared SVG primitives provide rounded icon badges, custom browser/service/server glyphs, the existing Mole brand icon, and curved or rounded connectors with directional endpoints. Local/remote regions use subtle theme-based gradients instead of dotted frames; packet paths follow the same curves as their wires. Typography and colors inherit the portfolio theme, with distinct mobile layouts. There is no diagram image, iframe, standalone viewer, component explorer or global mesh.
+
+Desktop traffic regions have equal dimensions, centered headings and symmetric node positions. Keep operation-branch labels clear of the curves and the log flow on its own vertically separated row; check text/text and text/wire intersections on both responsive layouts when changing coordinates.
+
+`src/data/mole-diagram-sources.ts` records inspected implementation ranges from Mole's `main` at `8ceb33fe75b468efb86624685d8a4e4f4dd794ee`. Each figure exposes its pinned source links under a closed disclosure. Refresh the revision and citations together when updating claims. Keep clipboard HTTP separate from SSH, optional admin separate from forwarding, text/logfmt logs separate from JSON status, and fallback discovery transports separate from the shared forwarding client.
+
+`src/components/mole-traffic-simulation.tsx` uses the deterministic reducer in `src/lib/mole-simulation.ts`, not real processes, requests, probes or telemetry. The local/remote topology supports play/pause, single steps, reset, finite request/response packet travel, service changes, SSH interruption/recovery and handled-signal shutdown. Additional setups and step explanations stay in closed disclosures. Auto-discovery, explicit pins and fallback probes retain their different reconciliation rules. Playback settles at stable running or stopped and pauses when the page is hidden; reduced-motion mode shows a static destination instead of packet travel. Setup/reconnect assume success; neither request replay nor graceful Windows forced termination is promised.
+
+Run `bun test tests/mole-simulation.test.ts` for consumer-visible boundaries: authoritative pruning, fallback retention/addition, explicit pins, guarded requests, transport recovery without listener replacement, and local shutdown without stopping remote services.
 
 ## SEO and deployment
 

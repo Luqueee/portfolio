@@ -14,7 +14,7 @@ type AnimatedProps = {
 
 export function PageContent({ children, className }: ContentProps) {
   const spacing = className ?? 'mt-[93px] max-[641px]:mt-[71px]'
-  return <main className={`mx-auto w-[min(calc(100%_-_48px),700px)] flex-1 ${spacing}`}>{children}</main>
+  return <main className={`mx-auto w-[min(calc(100%_-_48px),900px)] flex-1 ${spacing}`}>{children}</main>
 }
 
 export function PageHeading({ children, animate = false }: AnimatedProps) {
