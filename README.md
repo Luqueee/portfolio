@@ -73,6 +73,12 @@ Desktop traffic regions have equal dimensions, centered headings and symmetric n
 
 Run `bun test tests/mole-simulation.test.ts` for consumer-visible boundaries: authoritative pruning, fallback retention/addition, explicit pins, guarded requests, transport recovery without listener replacement, and local shutdown without stopping remote services.
 
+Kivgraph's story uses six `[kivgraph-diagram:kind]` markers for indexing, language engines, cross-repository identity, snapshot publication, MCP/source queries and the independent HTTP viewer. `src/components/diagram-primitives.tsx` is shared with Mole; retain the established icon badges, theme tokens and separate mobile geometry rather than adding a standalone viewer or diagram image.
+
+`src/data/kivgraph-diagram-sources.ts` pins implementation citations to Kivgraph `main` at `259fb0081ebbd5f07faa703a77d7a0c86c35978c`. The article distinguishes full rebuilds with cached analysis from incremental graph mutation, canonical LadybugDB from immutable query snapshots, recorded completeness from universal absence, and live file reads from indexed relationships. Preserve the explicit research limitation: reliable net token savings over long agent conversations were not demonstrated.
+
+Language selection explains the adapter and its confidence boundary. The query selector switches the actual drawn path between snapshot relationships and `get_source` file reads. `KivgraphPublicationDiagram` is an illustrative, manually controlled state transition, not a real index: preparing or failing a candidate retains the serving generation, successful publication advances it, and reset returns to the example baseline. Smoke both success/failure paths and text/wire separation across responsive layouts when updating it. The viewer section must retain the unauthenticated network-bind warning and explicit loopback example.
+
 ## SEO and deployment
 
 - Canonical origin: `https://luqueee.dev` (taken from the previous portfolio configuration). Change `src/lib/seo.ts` and the URLs in `public/robots.txt` and `public/sitemap.xml` together if the domain changes.

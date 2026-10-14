@@ -4,9 +4,11 @@ import { Link } from 'react-router'
 import { ExternalLink } from '../components/external-link'
 import { BackLink, Eyebrow, Lead, PageContent, PageHeading } from '../components/page'
 import { MoleArticleDiagram } from '../components/mole-article-diagram'
+import { KivgraphArticleDiagram } from '../components/kivgraph-article-diagram'
 import { articles } from '../data/articles'
 import type { Project } from '../data/projects'
 import type { MoleDiagramKind } from '../data/mole-diagram-sources'
+import type { KivgraphDiagramKind } from '../data/kivgraph-diagram-sources'
 
 const markdownComponents = {
   a: ({ href, children }) => <ExternalLink href={href}>{children}</ExternalLink>,
@@ -14,6 +16,8 @@ const markdownComponents = {
     if (typeof children === 'string') {
       const match = /^\[mole-diagram:(traffic|process|discovery|recovery|operations|clipboard|delivery)\]$/.exec(children)
       if (match) return <MoleArticleDiagram kind={match[1] as MoleDiagramKind} />
+      const kivgraph = /^\[kivgraph-diagram:(indexing|engines|publication|queries|identity|viewer)\]$/.exec(children)
+      if (kivgraph) return <KivgraphArticleDiagram kind={kivgraph[1] as KivgraphDiagramKind} />
     }
     return <p>{children}</p>
   },

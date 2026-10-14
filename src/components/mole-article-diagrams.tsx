@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { DiagramCanvas, DiagramNode, DiagramWire } from './mole-diagram-primitives'
+import { DiagramCanvas, DiagramNode, DiagramWire } from './diagram-primitives'
 
 export function MoleProcessDiagram() {
   return <DiagramCanvas title="Starting one local Mole process" description="The shell launches Mole. Optional detach re-executes the same binary. The process loads configuration, establishes SSH and owns its local listeners and background loops." desktopHeight={340} mobileHeight={540}>{({ mobile, arrowId }) => mobile ? <>

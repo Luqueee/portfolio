@@ -1,7 +1,7 @@
 import { useEffect, useReducer, useRef, useState } from 'react'
 import { Pause, Play, RotateCcw, StepForward } from 'lucide-react'
 import { createSimulation, simulationControls, simulationReducer, type SimulationAction, type SimulationScenario, type SimulationState } from '../lib/mole-simulation'
-import { DiagramCanvas, DiagramNode, DiagramWire } from './mole-diagram-primitives'
+import { DiagramCanvas, DiagramNode, DiagramWire } from './diagram-primitives'
 
 const scenarios: { value: SimulationScenario; label: string; description: string }[] = [
   { value: 'auto', label: 'Automatic discovery', description: 'Authoritative ss / netstat results add listeners and prune missing, unpinned ports.' },
