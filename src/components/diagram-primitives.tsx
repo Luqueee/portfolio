@@ -39,13 +39,19 @@ export function DiagramCanvas({ title, description, desktopHeight, mobileHeight,
   </>
 }
 
-export function DiagramNode({ x, y, label, detail, icon = 'terminal', muted = false }: { x: number; y: number; label: string | string[]; detail?: string | string[]; icon?: string; muted?: boolean }) {
+export function DiagramNode({ x, y, label, detail, icon = 'terminal', logos, wide = false, muted = false }: { x: number; y: number; label: string | string[]; detail?: string | string[]; icon?: string; logos?: string[]; wide?: boolean; muted?: boolean }) {
   const Icon = icons[icon] ?? Terminal
+  const logoSize = 20
+  const logoGap = 4
+  const tileWidth = wide ? 76 : logos && logos.length > 1 ? logos.length * logoSize + (logos.length - 1) * logoGap + 16 : 44
   const labels = Array.isArray(label) ? label : [label]
   const details = detail ? Array.isArray(detail) ? detail : [detail] : []
   return <g transform={`translate(${x} ${y})`} opacity={muted ? .45 : 1}>
-    <rect x="-22" y="-22" width="44" height="44" rx="13" fill="var(--color-soft)" fillOpacity=".7" stroke="var(--color-accent)" strokeOpacity=".22" />
-    {icon === 'process' || icon === 'kivgraph' ? <image href={icon === 'kivgraph' ? '/kivgraph-icon.svg' : '/mole-icon.webp'} x="-19" y="-19" width="38" height="38" /> : icon === 'browser' || icon === 'app' ? <g fill="none" stroke="var(--color-accent)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <rect x={-tileWidth / 2} y="-22" width={tileWidth} height="44" rx="13" fill="var(--color-soft)" fillOpacity=".7" stroke="var(--color-accent)" strokeOpacity=".22" />
+    {wide && logos?.length ? <image href={logos[0]} x="-30" y="-14" width="60" height="28" /> : logos?.length ? logos.map((href, index) => {
+      const size = logos.length > 1 ? logoSize : 26
+      return <image key={href} href={href} x={-(logos.length * size + (logos.length - 1) * logoGap) / 2 + index * (size + logoGap)} y={-size / 2} width={size} height={size} />
+    }) : icon === 'kenabot' ? <image href="/images/kenabot/icon.webp" x="-14" y="-14" width="28" height="28" /> : icon === 'process' || icon === 'kivgraph' ? <image href={icon === 'kivgraph' ? '/images/kivgraph/icon.svg' : '/images/mole/icon.webp'} x="-19" y="-19" width="38" height="38" /> : icon === 'browser' || icon === 'app' ? <g fill="none" stroke="var(--color-accent)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
       <rect x="-14" y="-11" width="28" height="23" rx="4" />
       <path d="M -14 -4 H 14" strokeOpacity=".5" />
       <circle cx="-9" cy="-7.5" r="1" fill="var(--color-accent)" stroke="none" /><circle cx="-5" cy="-7.5" r="1" fill="var(--color-accent)" fillOpacity=".45" stroke="none" />

@@ -11,7 +11,7 @@ export function PageMetadata() {
     document.title = page.title
     const metadata: Record<string, string> = {
       description: page.description,
-      'og:type': path.startsWith('/projects/') ? 'article' : 'website',
+      'og:type': path.startsWith('/projects/') || path.startsWith('/experience/') ? 'article' : 'website',
       'og:title': page.title,
       'og:description': page.description,
       'og:url': pageUrl(path),

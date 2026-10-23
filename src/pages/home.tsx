@@ -6,6 +6,7 @@ import { Lead, PageContent, PageHeading } from '../components/page'
 import { ProjectList } from '../components/project-list'
 import { Section } from '../components/section'
 import { TechnologyLabel } from '../components/technology-label'
+import { KenabotFeature } from '../components/kenabot-feature'
 import { NowPlaying } from '../components/now-playing'
 
 const contacts = Object.values(socialLinks)
@@ -24,6 +25,7 @@ export function Home() {
         <p className="mt-0 mb-[20px] motion-ready:motion-safe:animate-rise-in motion-ready:motion-safe:[animation-delay:.38s]">I work across the stack with <TechnologyLabel name="React" inline />, <TechnologyLabel name="TypeScript" inline /> and <TechnologyLabel name="Go" inline />. Simple interfaces, useful software, and the details that make both feel right.</p>
         <p className="mt-0 mb-[20px] motion-ready:motion-safe:animate-rise-in motion-ready:motion-safe:[animation-delay:.47s]">Take a look at my <Link to="/projects" viewTransition className="font-semibold whitespace-nowrap text-heading underline decoration-[#b4bfb1] underline-offset-[4px] hover:text-accent">projects page <ArrowUpRight size={14} className="inline align-[-2px]" /></Link> or find me through the links below.</p>
       </div>
+      <KenabotFeature />
       <NowPlaying />
 
       <Section index="01" title="Featured projects" id="featured-title">
