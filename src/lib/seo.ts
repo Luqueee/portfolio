@@ -3,7 +3,7 @@ import { projects, type Project } from '../data/projects'
 export const siteUrl = 'https://luqueee.dev'
 export const socialImage = `${siteUrl}/og.png`
 
-export type PagePath = '/' | '/projects' | Project['path']
+export type PagePath = '/' | '/projects' | '/experience/kenabot' | Project['path']
 
 export const pages = {
   '/': {
@@ -13,6 +13,10 @@ export const pages = {
   '/projects': {
     title: 'Projects — luqueee',
     description: 'Explore Mole, Kivgraph, and my research on serving Qwen3.8-27B on a single NVIDIA A10 with llamAmpere.',
+  },
+  '/experience/kenabot': {
+    title: 'Kenabot — Experience — luqueee',
+    description: 'My work as part of the Kenabot team, on a multipurpose Discord bot in 300,000+ servers: frontend, backend and infrastructure.',
   },
   ...Object.fromEntries(projects.map((project) => [
     project.path,
@@ -64,6 +68,15 @@ export function structuredData(path: PagePath) {
     },
   }]
 
+  if (path === '/experience/kenabot') return [{
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: pages[path].title,
+    description: pages[path].description,
+    url: pageUrl(path),
+    author: { '@type': 'Person', name: 'luqueee', url: siteUrl },
+  }]
+
   const project = projects.find((item) => item.path === path)!
   return [{
     '@context': 'https://schema.org',
@@ -92,7 +105,7 @@ export function metadataMarkup(path: PagePath) {
     `<meta name="description" content="${escapeAttribute(description)}" />`,
     `<link rel="canonical" href="${pageUrl(path)}" />`,
     '<meta name="robots" content="index, follow" />',
-    `<meta property="og:type" content="${path.startsWith('/projects/') ? 'article' : 'website'}" />`,
+    `<meta property="og:type" content="${path.startsWith('/projects/') || path.startsWith('/experience/') ? 'article' : 'website'}" />`,
     '<meta property="og:site_name" content="luqueee" />',
     '<meta property="og:locale" content="en_US" />',
     `<meta property="og:title" content="${escapeAttribute(title)}" />`,
