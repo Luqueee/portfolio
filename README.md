@@ -95,11 +95,11 @@ Mole's transparent mark sits on a dark rounded background with 2 px of padding t
 
 The homepage additionally features Mole's actual `mole logs` screenshot from its repository README (`docs/mole-logs.png`), converted from PNG to `public/mole-logs.webp`. `MolePreview` provides responsive dimensions, lazy loading, descriptive alternative text, and a full-size image link above the card's stretched link. This is a static demonstration, not live terminal output; `/projects` retains the compact list. The introduction describes the developer-tool focus rather than generic product work.
 
-Kivgraph uses the same homepage-only treatment through `KivgraphPreview`: the real `docs/assets/kivgraph-viewer.png` screenshot from its README is converted from PNG to `public/kivgraph-viewer.webp`. Its caption identifies the read-only `kivgraph ui` viewer, with separate full-size image and upstream demo-video links. The screenshot is not an embedded interactive graph.
+Kivgraph uses the same homepage-only treatment through `KivgraphPreview`: `public/images/kivgraph/viewer.webp` is a user-supplied dashboard screenshot (originally a clipboard WebP, 2582 × 1742) re-encoded to the dimensions below. Its caption still describes the read-only `kivgraph ui` viewer, with separate full-size image and upstream demo-video links. The screenshot is not an embedded interactive graph.
 
 Clicking either project preview image navigates to its project story in the same tab using React Router. Only the explicit “View full size” caption links open the image; Kivgraph's “Watch demo” remains an external video link.
 
-Project screenshots are encoded as WebP at quality 88 with a maximum width of 1600 px, stripped metadata, and encoder method 6. Their HTML dimensions match the encoded files (Mole: 1600 × 586; Kivgraph: 1600 × 924). Mole's icon is resized to 96 × 96 at quality 90; Kivgraph's small SVG remains unchanged. Use ImageMagick with explicit `webp:` output when refreshing these assets: changing a filename extension does not convert PNG bytes.
+Project screenshots are encoded as WebP at quality 88 with a maximum width of 1600 px, stripped metadata, and encoder method 6. Their HTML dimensions match the encoded files (Mole: 1600 × 586; Kivgraph: 1600 × 1079). Mole's icon is resized to 96 × 96 at quality 90; Kivgraph's small SVG remains unchanged. Use ImageMagick with explicit `webp:` output when refreshing these assets: changing a filename extension does not convert PNG bytes.
 
 The site uses a charcoal dark theme throughout, without a theme switcher. The homepage starts directly with its introduction heading; the footer contains only the copyright.
 
