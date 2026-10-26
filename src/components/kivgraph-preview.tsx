@@ -7,9 +7,9 @@ export function KivgraphPreview() {
       <Link to="/projects/kivgraph" viewTransition aria-label="Read the Kivgraph project story" className="relative z-[2] block">
         <img
           src="/images/kivgraph/viewer.webp"
-          alt="Kivgraph's 3D graph viewer showing repositories, packages, files, and symbols connected by dependency edges."
+          alt="Dark dashboard screenshot with a status sidebar, an SSH tunnel diagram between local and remote endpoints, and uptime, active, total and failed connection counters."
           width={1600}
-          height={924}
+          height={1079}
           loading="lazy"
           decoding="async"
           className="block h-auto w-full"
